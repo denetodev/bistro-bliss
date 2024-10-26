@@ -5,6 +5,7 @@
   background-color: $color-bg-principal;
   color: $color-white;
   padding: 4rem 2rem 1rem;
+  font-family: "DM Sans", serif;
 
   .footer-content {
     max-width: 1200px;
@@ -37,65 +38,81 @@
       }
 
       h2 {
-        font-size: 1.5rem;
+        font-family: "Libre Baskerville", serif;
+        font-weight: 500;
+        font-style: italic;
+        font-size: 1.8rem;
         margin: 0;
+        color: $color-white;
       }
     }
 
     .slogan {
-      margin-bottom: 1.5rem;
-      color: #cccccc;
+      margin: 1.5rem 0;
+      color: $color-bg-buttons;
+      font-size: 16px;
+      font-weight: 200;
     }
   }
 
   .social-icons {
     display: flex;
-    gap: 1rem;
+    gap: 0.6rem;
 
     .social-icon {
       width: 36px;
       height: 36px;
-      background-color: #333;
+      background-color: $color-cardinal;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      color: $color-white;
       text-decoration: none;
       transition: background-color 0.3s;
 
       &:hover {
-        background-color: #dc3545;
+        background-color: hsla(355, 54%, 44%, 0.603);
       }
     }
   }
 
   .footer-section {
     h3 {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      color: #ffffff;
+      font-weight: 500;
+      margin-bottom: 3rem;
+      color: $color-white;
     }
 
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
+      font-weight: 200;
 
       li {
         margin-bottom: 0.8rem;
 
         a {
-          color: #cccccc;
+          color: $color-whiteSmoke;
           text-decoration: none;
           transition: color 0.3s;
 
           &:hover {
-            color: #dc3545;
+            color: $color-cardinal;
           }
         }
       }
     }
+
+    img {
+      border-radius: 8px;
+      object-fit: cover;
+    }
+  }
+
+  .footer-pages {
+    margin-left: 3rem;
   }
 
   .instagram-grid {
@@ -123,7 +140,15 @@
   .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid #333;
-    color: #cccccc;
+    border-top: 0.1px solid $color-bg-buttons;
+    color: $color-bg-buttons;
+    font-weight: 200;
+    font-size: 14px;
+  }
+
+  @media (max-width: 968px) {
+    .footer-pages {
+      margin-left: 0;
+    }
   }
 }

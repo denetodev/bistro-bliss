@@ -1,8 +1,8 @@
 // Variáveis
 @import "../../../style/variables.scss";
 
-$top-bar-height: 40px;
-$main-header-height: 80px;
+$top-bar-height: 2.5rem;
+$main-header-height: 5rem;
 
 // Barra superior
 .top-bar {
@@ -16,7 +16,7 @@ $main-header-height: 80px;
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 0 auto;
     padding: 0 1rem;
   }
@@ -67,10 +67,10 @@ $main-header-height: 80px;
   height: $main-header-height;
   border-bottom: 1px solid #eeeeee;
   font-family: "DM Sans", serif;
-  font-size: 16px;
+  font-size: 1rem;
 
   .container {
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 0 auto;
     padding: 0 1rem;
     height: 100%;
@@ -90,15 +90,15 @@ $main-header-height: 80px;
   }
 
   .logo img {
-    height: 40px;
+    height: 2.5rem;
   }
 
   .logo span {
     font-family: "Libre Baskerville", serif;
     font-weight: 400;
     font-style: italic;
-    font-size: 34px;
-    margin-left: 10px;
+    font-size: 2.125rem;
+    margin-left: 0.625rem;
   }
 
   .main-nav {
@@ -112,11 +112,11 @@ $main-header-height: 80px;
 
     .nav-link {
       color: $color-bg-principal;
-      background-color: $color-whiteSmoke;
-      padding: 6px 16px !important;
+      background-color: transparent;
+      padding: 0.375rem 1rem !important;
 
       text-decoration: none;
-      font-size: 14px;
+      font-size: 0.875rem;
       font-weight: 600;
       padding: 0.5rem 0;
       position: relative;
@@ -124,8 +124,8 @@ $main-header-height: 80px;
       &:hover,
       &.active {
         background-color: $color-bg-buttons;
-        padding: 6px 16px !important;
-        border-radius: 25px;
+        padding: 0.375rem 1rem !important;
+        border-radius: 1.5625rem;
       }
     }
 
@@ -136,18 +136,18 @@ $main-header-height: 80px;
 
   .reserve-button {
     background-color: transparent;
-    border: 1.5px solid $color-bg-principal;
+    border: 0.092rem solid $color-bg-principal;
     color: $color-bg-principal;
     padding: 0.75rem 1.2rem;
-    border-radius: 50px;
+    border-radius: 3.125rem;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
 
     &:hover {
       background-color: $color-cardinal;
-      border: $color-cardinal;
       color: $color-white;
+      border: none;
     }
   }
 
@@ -177,12 +177,13 @@ $main-header-height: 80px;
 
     .main-nav {
       display: none;
+      margin-top: 30px;
 
       &.show {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        background-color: $color-white;
+        background-color: $color-whiteSmoke;
         padding: 1rem;
         position: absolute;
         top: $main-header-height;
@@ -193,6 +194,7 @@ $main-header-height: 80px;
 
       .nav-list {
         flex-direction: column;
+        justify-content: flex-end;
         gap: 1rem;
       }
     }
