@@ -13,6 +13,7 @@ import { MenuComponent } from './features/menu/menu.component';
 import { BlogComponent } from './features/blog/blog.component';
 import { ContactComponent } from './features/contact/contact.component';
 import { ReservationComponent } from './features/reservation/reservation.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ReservationComponent } from './features/reservation/reservation.compone
     BrowserAnimationsModule,
     AppRoutingModule,
     MenubarModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

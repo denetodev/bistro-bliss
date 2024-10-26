@@ -1,21 +1,33 @@
 <div class="top-bar">
   <div class="container">
     <div class="top-bar__left">
-      <a href="tel:4148670107" class="top-bar__contact">
+      <a href="tel:61986170964" target="_blank" class="top-bar__contact">
         <i class="pi pi-phone"></i>
-        (414) 867 - 0107
+        (61) 9 8617 - 0964
       </a>
-      <a href="mailto:yummy@bistrobliss" class="top-bar__contact">
+      <a
+        href="mailto:torresneto.tn@gmail.com"
+        target="_blank"
+        class="top-bar__contact"
+      >
         <i class="pi pi-envelope"></i>
-        yummybistrobliss
+        torresneto.tn&#64;gmail.com
       </a>
     </div>
     <div class="top-bar__right">
       <div class="social-links">
-        <a href="#" class="social-link"><i class="pi pi-twitter"></i></a>
-        <a href="#" class="social-link"><i class="pi pi-facebook"></i></a>
-        <a href="#" class="social-link"><i class="pi pi-instagram"></i></a>
-        <a href="#" class="social-link"><i class="pi pi-github"></i></a>
+        <a
+          href="https://www.instagram.com/torresneto.tn/"
+          target="_blank"
+          class="social-link"
+          ><i class="pi pi-instagram"></i
+        ></a>
+        <a
+          href="https://github.com/deusdeteneto"
+          target="_blank"
+          class="social-link"
+          ><i class="pi pi-github"></i
+        ></a>
       </div>
     </div>
   </div>
@@ -29,7 +41,13 @@
         <span class="logo-name">Bistro Bliss</span>
       </div>
 
-      <nav class="main-nav">
+      <!-- Menu Sanduíche -->
+      <button class="menu-toggle" (click)="menuOpen = !menuOpen">
+        <i class="pi pi-bars"></i>
+      </button>
+
+      <!-- Navegação principal -->
+      <nav class="main-nav" [class.show]="menuOpen">
         <ul class="nav-list">
           <li><a href="#" class="nav-link active">Início</a></li>
           <li><a href="#" class="nav-link">Sobre</a></li>

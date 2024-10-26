@@ -44,4 +44,10 @@ export class HeaderComponent implements OnInit {
       },
     ];
   }
+
+  menuOpen = false; // Define a propriedade menuOpen
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen; // Alterna o estado do menu
+  }
 }
