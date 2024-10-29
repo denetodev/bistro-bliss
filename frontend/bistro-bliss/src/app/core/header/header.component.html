@@ -49,15 +49,38 @@
       <!-- Navegação principal -->
       <nav class="main-nav" [class.show]="menuOpen">
         <ul class="nav-list">
-          <li><a href="#" class="nav-link active">Início</a></li>
-          <li><a href="#" class="nav-link">Sobre</a></li>
-          <li><a href="#" class="nav-link">Menu</a></li>
-          <li><a href="#" class="nav-link">Blog</a></li>
-          <li><a href="#" class="nav-link">Contato</a></li>
+          <li>
+            <a routerLink="/home" class="nav-link" routerLinkActive="active"
+              >Início</a
+            >
+          </li>
+          <li>
+            <a routerLink="/about" class="nav-link" routerLinkActive="active"
+              >Sobre</a
+            >
+          </li>
+          <li>
+            <a routerLink="/menu" class="nav-link" routerLinkActive="active"
+              >Menu</a
+            >
+          </li>
+          <li>
+            <a routerLink="/blog" class="nav-link" routerLinkActive="active"
+              >Blog</a
+            >
+          </li>
+          <li>
+            <a routerLink="/contact" class="nav-link" routerLinkActive="active"
+              >Contato</a
+            >
+          </li>
         </ul>
       </nav>
-
-      <a href="#" class="reserve-button">Faça Uma Reserva</a>
+      <app-button
+        class="reserve-button"
+        label="Faça uma Reserva"
+        link="/reservation"
+      ></app-button>
     </div>
   </div>
 </header>

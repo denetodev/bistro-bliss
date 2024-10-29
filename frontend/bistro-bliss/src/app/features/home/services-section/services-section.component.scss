@@ -1,0 +1,63 @@
+@import "../../../../style/variables.scss";
+
+/* service-section.component.scss */
+$color-bg-principal: #1a191e;
+$color-cardinal: #ad343e;
+$color-xanthous: #ffc15e;
+$color-bg-buttons: #dbdfd0;
+$color-whiteSmoke: #f2f3f0;
+$color-white: #ffffff;
+$color-eerie: #222222;
+$color-onyx: #454444;
+
+.service-section {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f8f8f8;
+
+  &__title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__cards {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .service-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    max-width: 300px;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+    }
+
+    &__content {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &__description {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+  }
+}

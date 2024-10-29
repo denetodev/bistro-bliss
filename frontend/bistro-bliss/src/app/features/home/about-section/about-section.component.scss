@@ -1,0 +1,61 @@
+@import "../../../../style/variables.scss";
+
+.about-section {
+  width: 100%;
+  padding: 2.5rem 2rem;
+  background-color: $color-bg-principal;
+  color: $color-white;
+
+  .content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+
+    @media (max-width: 968px) {
+      flex-direction: column;
+    }
+  }
+
+  .text-content {
+    flex: 1;
+    padding-left: 3.125rem;
+
+    h2 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 3.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-family: "DM Sans", serif;
+      font-size: 1.125rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      color: $color-whiteSmoke;
+    }
+
+    .button-wrapper {
+      margin-top: 50px;
+    }
+
+    ::ng-deep .button-about {
+      color: $color-white !important;
+      border-color: $color-white !important;
+      padding: 15px 30px;
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: 768px) {
+  app-button {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem !important;
+  }
+}
