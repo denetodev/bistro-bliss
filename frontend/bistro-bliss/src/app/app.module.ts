@@ -31,6 +31,7 @@ import { BlogSectionComponent } from './features/home/blog-section/blog-section.
 import { MenuCardComponent } from './shared/components/home-components/menu-card/menu-card.component';
 import { AboutSectionComponent } from './features/home/about-section/about-section.component';
 import { ImageAndCardComponent } from './shared/components/home-components/image-and-card/image-and-card.component';
+import { TestimonialCardComponent } from './shared/components/home-components/testimonial-card/testimonial-card.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ImageAndCardComponent } from './shared/components/home-components/image
     MenuCardComponent,
     AboutSectionComponent,
     ImageAndCardComponent,
+    TestimonialCardComponent,
   ],
   imports: [
     BrowserModule,

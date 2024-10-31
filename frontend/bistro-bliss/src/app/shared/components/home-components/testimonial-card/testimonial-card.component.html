@@ -1,0 +1,21 @@
+<div class="testimonial-card">
+  <div class="testimonial-card__content">
+    <q class="testimonial-card__quote">{{ testimonial.quote }}</q>
+    <p class="testimonial-card__text">{{ testimonial.text }}</p>
+    <div class="testimonial-card__author">
+      <img
+        [src]="testimonial.author.image"
+        [alt]="testimonial.author.name"
+        class="testimonial-card__author-image"
+      />
+      <div class="testimonial-card__author-info">
+        <span class="testimonial-card__author-name">{{
+          testimonial.author.name
+        }}</span>
+        <span class="testimonial-card__author-location">{{
+          testimonial.author.location
+        }}</span>
+      </div>
+    </div>
+  </div>
+</div>
