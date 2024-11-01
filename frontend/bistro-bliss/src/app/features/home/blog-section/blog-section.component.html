@@ -1,1 +1,37 @@
-<p>blog-section works!</p>
+<div class="container">
+  <div class="blog-section">
+    <div class="blog-header">
+      <h2 class="section-title">Nossos Blog & Artigos</h2>
+      <div class="button-container">
+        <app-button
+          customClass="button-blog"
+          label="Leia Todos os Artigos"
+          link="/blog"
+        ></app-button>
+      </div>
+    </div>
+    <div class="blog-cards">
+      <div class="cards-principal">
+        <app-blog-card
+          [imageSrc]="'../../../../assets/images/home/hamburguer.jpg'"
+          [date]="'Agosto, 2023'"
+          [title]="
+            'As dicas e truques secretos para preparar um hambúrguer à sua maneira'
+          "
+          [content]="
+            'O preparo do hambúrguer mais saboroso e suculento com técnicas exclusivas.'
+          "
+        ></app-blog-card>
+      </div>
+      <div class="cards-content">
+        <app-blog-card
+          *ngFor="let post of blogPosts"
+          [imageSrc]="post.imageSrc"
+          [date]="post.date"
+          [title]="post.title"
+          [showContent]="false"
+        ></app-blog-card>
+      </div>
+    </div>
+  </div>
+</div>

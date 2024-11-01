@@ -1,0 +1,12 @@
+<div class="blog-card">
+  <div class="card-image">
+    <img [src]="imageSrc" alt="Imagem do post" />
+  </div>
+  <div class="card-content">
+    <p class="date">{{ date }}</p>
+    <h3 class="title">{{ title }}</h3>
+    <div class="content" *ngIf="showContent">
+      <p>{{ content }}</p>
+    </div>
+  </div>
+</div>

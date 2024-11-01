@@ -32,6 +32,7 @@ import { MenuCardComponent } from './shared/components/home-components/menu-card
 import { AboutSectionComponent } from './features/home/about-section/about-section.component';
 import { ImageAndCardComponent } from './shared/components/home-components/image-and-card/image-and-card.component';
 import { TestimonialCardComponent } from './shared/components/home-components/testimonial-card/testimonial-card.component';
+import { BlogCardComponent } from './shared/components/home-components/blog-card/blog-card.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { TestimonialCardComponent } from './shared/components/home-components/te
     AboutSectionComponent,
     ImageAndCardComponent,
     TestimonialCardComponent,
+    BlogCardComponent,
   ],
   imports: [
     BrowserModule,
