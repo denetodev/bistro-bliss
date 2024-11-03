@@ -33,6 +33,9 @@ import { AboutSectionComponent } from './features/home/about-section/about-secti
 import { ImageAndCardComponent } from './shared/components/home-components/image-and-card/image-and-card.component';
 import { TestimonialCardComponent } from './shared/components/home-components/testimonial-card/testimonial-card.component';
 import { BlogCardComponent } from './shared/components/home-components/blog-card/blog-card.component';
+import { AboutSectionPrincipalComponent } from './features/about/about-section-principal/about-section-principal.component';
+import { AboutRestaurantAmbienceComponent } from './features/about/about-restaurant-ambience/about-restaurant-ambience.component';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -57,6 +60,8 @@ import { BlogCardComponent } from './shared/components/home-components/blog-card
     ImageAndCardComponent,
     TestimonialCardComponent,
     BlogCardComponent,
+    AboutSectionPrincipalComponent,
+    AboutRestaurantAmbienceComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +72,7 @@ import { BlogCardComponent } from './shared/components/home-components/blog-card
     CommonModule,
     ButtonModule,
     CardModule,
+    DialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
