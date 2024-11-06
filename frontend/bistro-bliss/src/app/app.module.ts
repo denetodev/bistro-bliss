@@ -36,6 +36,7 @@ import { BlogCardComponent } from './shared/components/home-components/blog-card
 import { AboutSectionPrincipalComponent } from './features/about/about-section-principal/about-section-principal.component';
 import { AboutRestaurantAmbienceComponent } from './features/about/about-restaurant-ambience/about-restaurant-ambience.component';
 import { DialogModule } from 'primeng/dialog';
+import { ClientInfoComponent } from './features/about/client-info/client-info.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { DialogModule } from 'primeng/dialog';
     BlogCardComponent,
     AboutSectionPrincipalComponent,
     AboutRestaurantAmbienceComponent,
+    ClientInfoComponent,
   ],
   imports: [
     BrowserModule,
