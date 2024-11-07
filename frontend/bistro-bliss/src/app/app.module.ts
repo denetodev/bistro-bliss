@@ -37,6 +37,7 @@ import { AboutSectionPrincipalComponent } from './features/about/about-section-p
 import { AboutRestaurantAmbienceComponent } from './features/about/about-restaurant-ambience/about-restaurant-ambience.component';
 import { DialogModule } from 'primeng/dialog';
 import { ClientInfoComponent } from './features/about/client-info/client-info.component';
+import { DeliveryAppsComponent } from './features/menu/delivery-apps/delivery-apps.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { ClientInfoComponent } from './features/about/client-info/client-info.co
     AboutSectionPrincipalComponent,
     AboutRestaurantAmbienceComponent,
     ClientInfoComponent,
+    DeliveryAppsComponent,
   ],
   imports: [
     BrowserModule,
