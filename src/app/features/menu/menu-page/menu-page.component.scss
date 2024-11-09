@@ -1,0 +1,80 @@
+@import "../../../../style/variables.scss";
+
+.menu-page {
+  background-color: $color-bg-principal;
+  text-align: center;
+  color: $color-white;
+  padding: 65px 20px 100px 20px;
+
+  .menu-content-text {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente, se necessário */
+    flex-direction: column;
+
+    h1 {
+      font-family: $font-title;
+      font-size: 4.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    p {
+      font-family: $font-content;
+      max-width: 33rem;
+      color: $color-whiteSmoke;
+      font-size: 1rem;
+      margin-bottom: 2.8rem;
+      font-weight: 200;
+      text-align: center; /* Adiciona alinhamento de texto, se necessário */
+    }
+  }
+
+  .category-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 5.5rem;
+
+    ::ng-deep button {
+      padding: 10px 20px;
+      border-color: $color-white;
+      border-radius: 20px;
+      background-color: transparent;
+      color: $color-white;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &.selected {
+        border: none;
+        background-color: $color-cardinal; // cor do botão selecionado
+      }
+
+      &:hover {
+        border-color: $color-white;
+        background-color: $color-onyx;
+      }
+    }
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Inicialmente 4 colunas */
+    gap: 1.5rem;
+    justify-items: center; /* Alinha os cards ao centro */
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr); /* 3 colunas para telas médias */
+    }
+
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(2, 1fr); /* 2 colunas para telas pequenas */
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr; /* 1 coluna para telas extra pequenas */
+    }
+  }
+}

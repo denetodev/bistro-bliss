@@ -1,0 +1,25 @@
+<section class="container service">
+  <div class="service-section">
+    <h2 class="service-section__title">
+      Oferecemos serviços <br />
+      exclusivos para seus eventos
+    </h2>
+    <div class="service-section__cards">
+      <ng-container *ngFor="let service of services">
+        <p-card class="service-card">
+          <ng-template pTemplate="header">
+            <img
+              [src]="service.image"
+              alt="{{ service.title }}"
+              class="service-card__image"
+            />
+          </ng-template>
+          <div class="service-card__content">
+            <h3 class="service-card__title">{{ service.title }}</h3>
+            <p class="service-card__description">{{ service.description }}</p>
+          </div>
+        </p-card>
+      </ng-container>
+    </div>
+  </div>
+</section>

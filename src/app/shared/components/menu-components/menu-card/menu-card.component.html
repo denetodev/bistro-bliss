@@ -1,0 +1,8 @@
+<div class="menu-card">
+  <img [src]="imageUrl" alt="{{ title }}" class="menu-card-image" />
+  <div class="menu-card-content">
+    <h3 class="menu-card-price">{{ price | currency : "BRL" }}</h3>
+    <h4 class="menu-card-title">{{ title }}</h4>
+    <p class="menu-card-description">{{ description }}</p>
+  </div>
+</div>

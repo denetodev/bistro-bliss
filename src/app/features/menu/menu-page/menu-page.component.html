@@ -1,0 +1,29 @@
+<div class="menu-page">
+  <div class="menu-content-text">
+    <h1>Nosso Menu</h1>
+    <p>
+      Descubra uma variedade de pratos deliciosos, preparados com ingredientes
+      frescos e selecionados.
+    </p>
+  </div>
+
+  <div class="category-buttons">
+    <app-button
+      *ngFor="let category of categories"
+      [label]="category"
+      [customClass]="category === selectedCategory ? 'selected' : ''"
+      [clickable]="true"
+      (onClick)="selectCategory(category)"
+    ></app-button>
+  </div>
+
+  <div class="menu-grid">
+    <app-menu-card
+      *ngFor="let dish of filteredDishes"
+      [imageUrl]="dish.imageUrl"
+      [price]="dish.price"
+      [title]="dish.title"
+      [description]="dish.description"
+    ></app-menu-card>
+  </div>
+</div>

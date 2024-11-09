@@ -1,0 +1,107 @@
+// client-info.component.scss
+@import "../../../../style/variables.scss";
+
+.client-info-container {
+  background-color: $color-bg-principal;
+  min-height: 100vh;
+  padding: 6rem 2rem;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1rem;
+  }
+}
+
+.container-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+.content {
+  flex: 1;
+
+  .title {
+    font-family: "Playfair Display", $font-title, serif;
+    font-size: 3.4rem;
+    line-height: 1.2;
+    color: $color-white;
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 2.8rem;
+    }
+  }
+
+  .description {
+    color: $color-whiteSmoke;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    font-weight: 100;
+    opacity: 0.9;
+  }
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-card {
+  background-color: $color-xanthous;
+  padding: 2rem 1.5rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  h3 {
+    font-family: "Playfair Display", $font-title, serif;
+    font-size: 2.2rem;
+    color: $color-eerie;
+    margin-bottom: 0.5rem;
+    font-weight: 200;
+  }
+
+  p {
+    color: $color-eerie;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0;
+  }
+}
+
+.image-container {
+  flex: 1;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 1024px) {
+    width: 100%;
+
+    img {
+      height: 400px;
+    }
+  }
+}
