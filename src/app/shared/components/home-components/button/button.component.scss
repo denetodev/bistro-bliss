@@ -1,0 +1,27 @@
+@import "../../../../../style/variables.scss";
+
+.container {
+  .button-default {
+    background-color: transparent;
+    border: 0.1rem solid $color-bg-principal;
+    color: $color-bg-principal;
+    padding: 0.6rem 1.2rem;
+    border-radius: 3.125rem;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $color-cardinal;
+      color: $color-white;
+      border: none;
+    }
+  }
+
+  .button-default.active {
+    background-color: $color-cardinal;
+    color: $color-white;
+    border: none;
+  }
+}

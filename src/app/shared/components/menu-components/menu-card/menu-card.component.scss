@@ -1,0 +1,41 @@
+@import "../../../../../style/variables.scss";
+
+.menu-card {
+  background-color: $color-xanthous;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  max-width: 300px;
+  min-height: 320px;
+  font-family: $font-content;
+
+  .menu-card-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .menu-card-content {
+    padding: 16px;
+
+    .menu-card-price {
+      font-size: 1.4rem;
+      font-weight: bolder;
+      color: $color-eerie;
+      margin: 0;
+    }
+
+    .menu-card-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: $color-eerie;
+      margin: 8px 0;
+    }
+
+    .menu-card-description {
+      font-size: 0.9rem !important;
+
+      color: $color-onyx;
+      margin: 0;
+    }
+  }
+}

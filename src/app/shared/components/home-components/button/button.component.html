@@ -1,0 +1,16 @@
+<div class="container">
+  <a
+    *ngIf="!clickable"
+    [routerLink]="link"
+    [ngClass]="['button-default', customClass]"
+  >
+    {{ label }}
+  </a>
+  <button
+    *ngIf="clickable"
+    (click)="handleClick()"
+    [ngClass]="['button-default', customClass]"
+  >
+    {{ label }}
+  </button>
+</div>

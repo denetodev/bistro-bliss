@@ -1,0 +1,37 @@
+<section class="video-section">
+  <div class="video-content">
+    <!-- Overlay com título e botão play -->
+    <div class="content-overlay">
+      <div class="play-button">
+        <i class="pi pi-play"></i>
+      </div>
+      <h2>
+        Sinta o sabor autêntico &<br />
+        original do nosso Bistro Bliss
+      </h2>
+    </div>
+
+    <!-- Vídeo de background (muted e sem controles) -->
+    <video class="background-video" loop muted autoplay playsinline>
+      <source
+        src="../../../../assets/images/about/videos/restaurant-ambience.mp4"
+        type="video/mp4"
+      />
+    </video>
+  </div>
+
+  <!-- Features -->
+  <div class="features-container">
+    <div class="feature" *ngFor="let feature of features">
+      <img
+        [src]="feature.icon"
+        alt="{{ feature.title }}"
+        class="feature-icon"
+      />
+      <div class="feature-content">
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>

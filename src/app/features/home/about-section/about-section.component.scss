@@ -1,0 +1,171 @@
+@import "../../../../style/variables.scss";
+
+.about-section {
+  width: 100%;
+  padding: 2.5rem 2rem;
+  background-color: $color-bg-principal;
+  color: $color-white;
+
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5rem 1rem;
+  }
+
+  .content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+
+    @media (max-width: 1024px) {
+      gap: 3rem;
+    }
+
+    @media (max-width: 968px) {
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 480px) {
+      gap: 2rem;
+    }
+  }
+
+  .text-content {
+    flex: 1;
+    padding-left: 3.125rem;
+
+    @media (max-width: 1024px) {
+      padding-left: 2rem;
+    }
+
+    @media (max-width: 968px) {
+      padding-left: 0;
+      text-align: center;
+    }
+
+    h2 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 3.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      line-height: 1.2;
+
+      @media (max-width: 1024px) {
+        font-size: 2.8rem;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 2.4rem;
+        margin-bottom: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      @media (max-width: 360px) {
+        font-size: 1.75rem;
+      }
+    }
+
+    p {
+      font-family: "DM Sans", serif;
+      font-size: 1.125rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      color: $color-whiteSmoke;
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 0.9375rem;
+        margin-bottom: 0.875rem;
+      }
+
+      @media (max-width: 360px) {
+        font-size: 0.875rem;
+        line-height: 1.4;
+      }
+    }
+
+    .button-wrapper {
+      margin-top: 50px;
+
+      @media (max-width: 768px) {
+        margin-top: 35px;
+        display: flex;
+        justify-content: center;
+      }
+
+      @media (max-width: 480px) {
+        margin-top: 25px;
+      }
+    }
+
+    ::ng-deep .button-about {
+      color: $color-white !important;
+      border-color: $color-white !important;
+      padding: 15px 30px;
+
+      @media (max-width: 768px) {
+        padding: 12px 25px;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 10px 20px;
+      }
+    }
+  }
+}
+
+// App Button Styles
+app-button {
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem !important;
+  }
+
+  @media (max-width: 480px) {
+    gap: 2rem !important;
+  }
+}
+
+// Additional utility classes for better spacing control
+.text-center-mobile {
+  @media (max-width: 968px) {
+    text-align: center;
+  }
+}
+
+.preserve-whitespace {
+  white-space: pre-line;
+}
+
+// Optional: Add smooth transitions for responsive changes
+.about-section {
+  transition: padding 0.3s ease;
+
+  .text-content {
+    transition: padding-left 0.3s ease;
+
+    h2,
+    p {
+      transition: font-size 0.3s ease, margin 0.3s ease;
+    }
+  }
+}

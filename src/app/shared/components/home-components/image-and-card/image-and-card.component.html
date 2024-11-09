@@ -1,0 +1,22 @@
+<div class="image-card-container">
+  <div class="background-image">
+    <img [src]="imageUrl" alt="Deliciosa comida artesanal" />
+  </div>
+  <div class="contact-card">
+    <h3>Venha nos visitar</h3>
+    <div class="contact-info">
+      <div class="info-item">
+        <i class="pi pi-phone"></i>
+        <span>{{ contactInfo.phone }}</span>
+      </div>
+      <div class="info-item">
+        <i class="pi pi-envelope"></i>
+        <span>{{ contactInfo.email }}</span>
+      </div>
+      <div class="info-item">
+        <i class="pi pi-map-marker"></i>
+        <span>{{ contactInfo.address }}</span>
+      </div>
+    </div>
+  </div>
+</div>
