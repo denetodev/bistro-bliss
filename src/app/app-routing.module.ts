@@ -16,6 +16,11 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'reservation', component: ReservationComponent },
+  {
+    path: 'blog',
+    loadChildren: () =>
+      import('./features/blog/blog.module').then((m) => m.BlogModule),
+  },
   // Rota curinga para página não encontrada
   { path: '**', redirectTo: '/home' },
 ];

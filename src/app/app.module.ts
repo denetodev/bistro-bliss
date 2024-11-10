@@ -29,7 +29,7 @@ import { TestimonialsComponent } from './features/home/testimonials/testimonials
 import { DeliverySectionComponent } from './features/home/delivery-section/delivery-section.component';
 import { BlogSectionComponent } from './features/home/blog-section/blog-section.component';
 import { MenuCardComponent } from './shared/components/menu-components/menu-card/menu-card.component';
-import { MenuCardHomeComponent } from './shared/components/home-components/menu-card-home/menu-card-home.component' ;
+import { MenuCardHomeComponent } from './shared/components/home-components/menu-card-home/menu-card-home.component';
 import { AboutSectionComponent } from './features/home/about-section/about-section.component';
 import { ImageAndCardComponent } from './shared/components/home-components/image-and-card/image-and-card.component';
 import { TestimonialCardComponent } from './shared/components/home-components/testimonial-card/testimonial-card.component';
@@ -40,6 +40,7 @@ import { DialogModule } from 'primeng/dialog';
 import { ClientInfoComponent } from './features/about/client-info/client-info.component';
 import { DeliveryAppsComponent } from './features/menu/delivery-apps/delivery-apps.component';
 import { MenuPageComponent } from './features/menu/menu-page/menu-page.component';
+import { BlogModule } from './features/blog/blog.module';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,8 @@ import { MenuPageComponent } from './features/menu/menu-page/menu-page.component
     ButtonModule,
     CardModule,
     DialogModule,
+    BlogComponent,
+    BlogModule,
   ],
   exports: [ButtonComponent],
   providers: [],

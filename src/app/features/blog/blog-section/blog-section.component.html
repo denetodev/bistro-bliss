@@ -1,0 +1,12 @@
+<section class="blog-section">
+  <div class="container">
+    <h1 class="section-title">Blog & Artigos</h1>
+    <p class="section-subtitle">Explore nossas últimas publicações sobre gastronomia, receitas e dicas culinárias</p>
+    
+    <div class="blog-grid">
+      <div *ngFor="let post of posts" class="blog-grid-item">
+        <app-blog-card [post]="post"></app-blog-card>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,55 @@
+.blog-card {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  height: 100%;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  ::ng-deep {
+    .p-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .p-card-body {
+      flex: 1;
+    }
+  }
+}
+
+.blog-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-card-content {
+  padding: 1rem 0;
+}
+
+.publish-date {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background-color: #f0f0f0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}

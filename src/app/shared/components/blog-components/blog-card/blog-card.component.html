@@ -1,0 +1,12 @@
+<p-card [header]="post.title" styleClass="blog-card" (click)="navigateToPost(post.id)">
+  <ng-template pTemplate="header">
+    <img [src]="post.imageUrl" [alt]="post.title" class="blog-card-image">
+  </ng-template>
+  <div class="blog-card-content">
+    <p class="publish-date">{{ post.publishDate | date:'mediumDate' }}</p>
+    <p class="description">{{ post.description }}</p>
+    <div class="tags">
+      <span *ngFor="let tag of post.tags" class="tag">{{ tag }}</span>
+    </div>
+  </div>
+</p-card>
