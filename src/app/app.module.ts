@@ -27,13 +27,11 @@ import { MenuSectionComponent } from './features/home/menu-section/menu-section.
 import { ServicesSectionComponent } from './features/home/services-section/services-section.component';
 import { TestimonialsComponent } from './features/home/testimonials/testimonials.component';
 import { DeliverySectionComponent } from './features/home/delivery-section/delivery-section.component';
-import { BlogSectionComponent } from './features/home/blog-section/blog-section.component';
 import { MenuCardComponent } from './shared/components/menu-components/menu-card/menu-card.component';
 import { MenuCardHomeComponent } from './shared/components/home-components/menu-card-home/menu-card-home.component';
 import { AboutSectionComponent } from './features/home/about-section/about-section.component';
 import { ImageAndCardComponent } from './shared/components/home-components/image-and-card/image-and-card.component';
 import { TestimonialCardComponent } from './shared/components/home-components/testimonial-card/testimonial-card.component';
-import { BlogCardComponent } from './shared/components/home-components/blog-card/blog-card.component';
 import { AboutSectionPrincipalComponent } from './features/about/about-section-principal/about-section-principal.component';
 import { AboutRestaurantAmbienceComponent } from './features/about/about-restaurant-ambience/about-restaurant-ambience.component';
 import { DialogModule } from 'primeng/dialog';
@@ -59,12 +57,10 @@ import { BlogModule } from './features/blog/blog.module';
     ServicesSectionComponent,
     TestimonialsComponent,
     DeliverySectionComponent,
-    BlogSectionComponent,
     MenuCardComponent,
     AboutSectionComponent,
     ImageAndCardComponent,
     TestimonialCardComponent,
-    BlogCardComponent,
     AboutSectionPrincipalComponent,
     AboutRestaurantAmbienceComponent,
     ClientInfoComponent,
@@ -82,7 +78,6 @@ import { BlogModule } from './features/blog/blog.module';
     ButtonModule,
     CardModule,
     DialogModule,
-    BlogComponent,
     BlogModule,
   ],
   exports: [ButtonComponent],

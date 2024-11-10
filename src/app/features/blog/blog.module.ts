@@ -9,6 +9,6 @@ import { BlogCardComponent } from '../../shared/components/blog-components/blog-
 @NgModule({
   declarations: [BlogSectionComponent, BlogPostComponent, BlogCardComponent],
   imports: [CommonModule, CardModule, BlogRoutingModule],
-  exports: [BlogCardComponent],
+  exports: [BlogCardComponent, BlogSectionComponent],
 })
 export class BlogModule {}
