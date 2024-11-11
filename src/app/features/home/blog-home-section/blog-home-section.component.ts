@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-blog-section',
-  templateUrl: './blog-section.component.html',
-  styleUrls: ['./blog-section.component.scss'],
+  selector: 'app-blog-home-section',
+  templateUrl: './blog-home-section.component.html',
+  styleUrls: ['./blog-home-section.component.scss'],
 })
-export class BlogSectionComponent {
+export class BlogHomeSectionComponent {
   blogPosts = [
     {
       imageSrc: '../../../../assets/images/home/batata-frita.jpg',

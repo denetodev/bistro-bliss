@@ -12,7 +12,7 @@
     </div>
     <div class="blog-cards">
       <div class="cards-principal">
-        <app-blog-card
+        <app-home-blog-card
           [imageSrc]="'../../../../assets/images/home/hamburguer.jpg'"
           [date]="'Agosto, 2023'"
           [title]="
@@ -21,16 +21,16 @@
           [content]="
             'O preparo do hambúrguer mais saboroso e suculento com técnicas exclusivas.'
           "
-        ></app-blog-card>
+        ></app-home-blog-card>
       </div>
       <div class="cards-content">
-        <app-blog-card
+        <app-home-blog-card
           *ngFor="let post of blogPosts"
           [imageSrc]="post.imageSrc"
           [date]="post.date"
           [title]="post.title"
           [showContent]="false"
-        ></app-blog-card>
+        ></app-home-blog-card>
       </div>
     </div>
   </div>

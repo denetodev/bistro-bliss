@@ -1,11 +1,12 @@
 export interface BlogPost {
   id: number;
   title: string;
-  description: string;
-  content: string;
-  imageUrl: string;
-  publishDate: Date;
+  description: string; // Propriedade obrigatória
+  content: string; // Propriedade obrigatória
   author: string;
-  category: string;
+  publishDate: Date;
+  imageUrl: string;
+  contentUrl: string;
+  category: string; // Propriedade obrigatória
   tags: string[];
 }

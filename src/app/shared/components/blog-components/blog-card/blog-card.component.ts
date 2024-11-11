@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { BlogPost } from '../../../interfaces/blog.interface';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,11 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./blog-card.component.scss'],
 })
 export class BlogCardComponent {
-  @Input() post!: BlogPost;
-
   constructor(private router: Router) {}
 
-  navigateToPost(id: number): void {
-    this.router.navigate(['/blog', id]);
+  navigateToPost(postId: string) {
+    this.router.navigate(['/blog', postId]); // Navega para o post específico
   }
+
+  @Input() post: any;
 }

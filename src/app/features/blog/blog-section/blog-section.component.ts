@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogPost } from '../../../shared/interfaces/blog.interface';
+import { BlogService } from '../../../shared/services/blog.service';
 
 @Component({
   selector: 'app-blog-section',
@@ -7,23 +8,23 @@ import { BlogPost } from '../../../shared/interfaces/blog.interface';
   styleUrls: ['./blog-section.component.scss'],
 })
 export class BlogSectionComponent implements OnInit {
-  posts: BlogPost[] = [
-    {
-      id: 1,
-      title: 'A Arte da Culinária Italiana',
-      description:
-        'Descubra os segredos por trás dos pratos mais tradicionais da Itália.',
-      content: 'Conteúdo completo do post...',
-      imageUrl: '/assets/images/italian-cuisine.jpg',
-      publishDate: new Date('2024-03-15'),
-      author: 'Chef Maria Silva',
-      category: 'Culinária Internacional',
-      tags: ['Italiana', 'Massas', 'Tradicional'],
-    },
-    // Adicione mais posts mockados aqui
-  ];
+  posts: BlogPost[] = [];
+
+  constructor(private blogService: BlogService) {}
 
   ngOnInit(): void {
-    // Aqui você pode adicionar lógica para carregar os posts de um serviço
+    this.loadPosts();
+  }
+
+  private loadPosts(): void {
+    this.blogService.getPosts().subscribe({
+      next: (posts) => {
+        this.posts = posts;
+      },
+      error: (error) => {
+        console.error('Erro ao carregar posts:', error);
+        // Aqui você pode adicionar uma lógica de tratamento de erro
+      },
+    });
   }
 }

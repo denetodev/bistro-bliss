@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogPost } from '../../../shared/interfaces/blog.interface';
+import { BlogService } from '../../../shared/services/blog.service';
 
 @Component({
   selector: 'app-blog-post',
@@ -9,11 +10,40 @@ import { BlogPost } from '../../../shared/interfaces/blog.interface';
 })
 export class BlogPostComponent implements OnInit {
   post?: BlogPost;
+  content: string = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private blogService: BlogService
+  ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    // Aqui você implementaria a lógica para buscar o post específico
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if (id) {
+      this.blogService.getPostById(id).subscribe({
+        next: (post) => {
+          if (post) {
+            this.post = post;
+            if (post.contentUrl) {
+              this.loadPostContent(post.contentUrl);
+            }
+          }
+        },
+        error: (error: Error) => {
+          console.error('Erro ao carregar post:', error);
+        },
+      });
+    }
+  }
+
+  private loadPostContent(url: string): void {
+    this.blogService.getPostContent(url).subscribe({
+      next: (content: string) => {
+        this.content = content;
+      },
+      error: (error: Error) => {
+        console.error('Erro ao carregar conteúdo HTML:', error);
+      },
+    });
   }
 }

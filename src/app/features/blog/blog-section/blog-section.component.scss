@@ -1,6 +1,26 @@
+@import "../../../../style/variables.scss";
+
+// Cores Principais do Projeto
+$color-bg-principal: #1a191e;
+$color-cardinal: #ad343e;
+$color-xanthous: #ffc15e;
+$color-xanthous: rgb(255, 193, 94);
+$color-bg-buttons: #dbdfd0;
+$color-whiteSmoke: #f2f3f0;
+$color-white: #ffffff;
+$color-eerie: #222222;
+$color-onyx: #454444;
+
+// Tipografia
+$font-title: "Libre Baskerville", serif;
+$font-content: "DM Sans", sans-serif;
+$font-size-title: 3.2rem;
+$font-size-card-title: 1.5rem;
+$font-size-card-desc: 1rem;
+
 .blog-section {
   padding: 4rem 0;
-  background-color: #fafafa;
+  background-color: $color-bg-principal;
 }
 
 .container {
@@ -10,22 +30,25 @@
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-family: $font-title;
+  font-size: 3.8rem;
   text-align: center;
   margin-bottom: 1rem;
-  color: #333;
+  color: $color-white;
 }
 
 .section-subtitle {
+  font-family: $font-content;
   text-align: center;
-  color: #666;
+  color: $color-whiteSmoke;
   margin-bottom: 3rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: 200;
 }
 
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
   padding: 1rem;
 }
@@ -40,7 +63,7 @@
   }
 
   .blog-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5rem;
   }
 }

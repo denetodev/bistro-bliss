@@ -5,11 +5,12 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
 
 const routes: Routes = [
   {
-    path: 'blog',
-    children: [
-      { path: '', component: BlogSectionComponent },
-      { path: ':id', component: BlogPostComponent },
-    ],
+    path: '',
+    component: BlogSectionComponent,
+  },
+  {
+    path: ':id',
+    component: BlogPostComponent,
   },
 ];
 

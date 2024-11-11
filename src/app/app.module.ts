@@ -39,6 +39,8 @@ import { ClientInfoComponent } from './features/about/client-info/client-info.co
 import { DeliveryAppsComponent } from './features/menu/delivery-apps/delivery-apps.component';
 import { MenuPageComponent } from './features/menu/menu-page/menu-page.component';
 import { BlogModule } from './features/blog/blog.module';
+import { BlogHomeSectionComponent } from './features/home/blog-home-section/blog-home-section.component';
+import { HomeBlogCardComponent } from './shared/components/home-components/home-blog-card/home-blog-card.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,8 @@ import { BlogModule } from './features/blog/blog.module';
     DeliveryAppsComponent,
     MenuPageComponent,
     MenuCardHomeComponent,
+    BlogHomeSectionComponent,
+    HomeBlogCardComponent,
   ],
   imports: [
     BrowserModule,

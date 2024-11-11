@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-blog-card',
-  templateUrl: './blog-card.component.html',
-  styleUrls: ['./blog-card.component.scss'],
+  selector: 'app-home-blog-card',
+  templateUrl: './home-blog-card.component.html',
+  styleUrls: ['./home-blog-card.component.scss'],
 })
-export class BlogCardComponent {
+export class HomeBlogCardComponent {
   @Input() imageSrc: string = '';
   @Input() date: string = '';
   @Input() title: string = '';
