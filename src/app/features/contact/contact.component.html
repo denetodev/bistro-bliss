@@ -1,1 +1,67 @@
-<p>contact works!</p>
+<div class="contact-container">
+  <h1>Contato</h1>
+  <p class="description">
+    Entre em contato para tirar dúvidas, compartilhar sugestões ou pedir aquela
+    receita especial! Estamos prontos para ajudar e adoraríamos ouvir você.
+    Preencha o formulário ou envie-nos uma mensagem diretamente.
+  </p>
+
+  <div class="contact-form">
+    <div class="form-row">
+      <div class="field">
+        <label for="name">Nome</label>
+        <input id="name" type="text" pInputText placeholder="Insira seu nome" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          pInputText
+          placeholder="Seu melhor email"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="subject">Assunto</label>
+      <input
+        id="subject"
+        type="text"
+        pInputText
+        placeholder="Qual é o assunto?"
+      />
+    </div>
+
+    <div class="field">
+      <label for="message">Mensagem</label>
+      <textarea
+        id="message"
+        rows="5"
+        pInputTextarea
+        placeholder="Escreva uma mensagem"
+      ></textarea>
+    </div>
+    <app-button
+      label="Enviar"
+      [clickable]="true"
+      customClass="submit-button"
+      (onClick)="handleSubmit()"
+    ></app-button>
+  </div>
+
+  <div class="contact-info">
+    <div class="info-section">
+      <h3>Ligue Para Nós:</h3>
+      <p class="phone">+1-234-567-8900</p>
+    </div>
+    <div class="info-section">
+      <h3>Horário:</h3>
+      <p>Seg-Sex: 11hs – 20hs<br />Sab, Dom: 9hs – 22hs</p>
+    </div>
+    <div class="info-section">
+      <h3>Nossa Localização:</h3>
+      <p>123 Bridge Street<br />Nowhere Land, LA 12345<br />United States</p>
+    </div>
+  </div>
+</div>

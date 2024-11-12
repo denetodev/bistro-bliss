@@ -3,8 +3,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent {
-
+  handleSubmit() {
+    // Lógica para lidar com o envio do formulário
+    console.log('Formulário enviado');
+  }
 }

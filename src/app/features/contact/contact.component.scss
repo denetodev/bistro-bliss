@@ -1,0 +1,163 @@
+@import "../../../style/variables.scss";
+
+.contact-container {
+  font-family: $font-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    $color-bg-principal 50%,
+    $color-white 50%
+  );
+  padding: 4rem 1rem;
+
+  h1 {
+    font-family: $font-title;
+    font-size: 4.6rem;
+    color: $color-white;
+    font-weight: normal;
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    color: $color-whiteSmoke;
+    font-size: 1rem;
+    font-weight: 200 !important;
+    max-width: 530px;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  .contact-form {
+    background-color: $color-cardinal;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 680px;
+    margin-bottom: 3rem;
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .field {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        color: $color-whiteSmoke;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 1.1rem;
+        border-radius: 50px;
+        border: none;
+        background: $color-white;
+        font-size: 0.9rem;
+
+        &::placeholder {
+          color: $color-onyx;
+          font-weight: 100;
+          font-size: 0.82rem;
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      textarea {
+        resize: none;
+        border-radius: 12px;
+      }
+    }
+
+    ::ng-deep .submit-button {
+      width: 100%;
+      background-color: transparent;
+      border: 0.1rem solid $color-white;
+      color: $color-white;
+      padding: 1rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background: darken($color-white, 5%);
+        color: $color-cardinal;
+      }
+    }
+
+    :host ::ng-deep {
+      .p-button {
+        width: 100%;
+        background: $color-white;
+        color: $color-cardinal;
+        border: none;
+        padding: 0.75rem;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background: darken($color-white, 5%);
+        }
+      }
+    }
+  }
+
+  .contact-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    margin-top: 2rem;
+    color: $color-onyx;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .info-section {
+      text-align: left;
+
+      @media (max-width: 768px) {
+        text-align: center;
+      }
+
+      h3 {
+        color: $color-eerie;
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.4;
+      }
+
+      .phone {
+        color: $color-cardinal;
+        font-weight: bold;
+      }
+    }
+  }
+}
