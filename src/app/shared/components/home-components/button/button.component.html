@@ -10,6 +10,7 @@
     *ngIf="clickable"
     (click)="handleClick()"
     [ngClass]="['button-default', customClass]"
+    [disabled]="disabled"
   >
     {{ label }}
   </button>

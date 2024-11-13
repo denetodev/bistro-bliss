@@ -1,1 +1,77 @@
-<p>reservation works!</p>
+<div class="reservation-container">
+  <h1>Faça Uma Reserva</h1>
+  <p class="description">
+    Garanta sua mesa de forma fácil e rápida, reservando online para uma
+    experiência tranquila.
+  </p>
+
+  <div class="reservation-form">
+    <div class="form-row">
+      <div class="field">
+        <label for="date">Data</label>
+        <input
+          id="date"
+          type="date"
+          formControlName="date"
+          class="form-control"
+        />
+      </div>
+      <div class="field">
+        <label for="time">Hora</label>
+        <select id="time" formControlName="time" class="form-control">
+          <option value="" disabled>Selecione um horário</option>
+          <option value="11:30">11:30</option>
+          <option value="12:00">12:00</option>
+          <option value="12:30">12:30</option>
+          <option value="13:00">13:00</option>
+          <option value="13:30">13:30</option>
+          <option value="14:00">14:00</option>
+          <option value="14:30">14:30</option>
+          <!-- Adicione mais horários conforme necessário -->
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="field">
+        <label for="name">Nome</label>
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          placeholder="Digite seu nome"
+          class="form-control"
+        />
+      </div>
+      <div class="field">
+        <label for="phone">Contato</label>
+        <input
+          id="phone"
+          type="tel"
+          formControlName="phone"
+          placeholder="(xx) xxxx-xxxx"
+          class="form-control"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="guests">Qtd Pessoas</label>
+      <select id="guests" formControlName="guests" class="form-control">
+        <option value="">Selecione a quantidade</option>
+        <option value="1">1 Pessoa</option>
+        <option value="2">2 Pessoas</option>
+        <option value="3">3 Pessoas</option>
+        <option value="4">4 Pessoas</option>
+        <!-- Adicione mais opções conforme necessário -->
+      </select>
+    </div>
+
+    <app-button
+      label="Reserve Uma Mesa"
+      [clickable]="true"
+      customClass="submit-button"
+      (onClick)="onSubmit()"
+    ></app-button>
+  </div>
+</div>

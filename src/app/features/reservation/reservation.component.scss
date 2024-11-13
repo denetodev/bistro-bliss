@@ -1,0 +1,100 @@
+@import "../../../style/variables.scss";
+
+.reservation-container {
+  font-family: $font-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(180deg, $color-bg-principal 50%, transparent 50%),
+    url("../../../assets/images/reserva/map.jpg") no-repeat center center;
+  background-size: cover;
+  padding: 4rem 1rem;
+
+  h1 {
+    font-family: $font-title;
+    font-size: 4.6rem;
+    color: $color-white;
+    font-weight: normal;
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    color: $color-whiteSmoke;
+    font-size: 1rem;
+    font-weight: 200 !important;
+    max-width: 530px;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  .reservation-form {
+    background-color: $color-cardinal;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 680px;
+    margin-bottom: 10rem;
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .field {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        color: $color-whiteSmoke;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 1.1rem;
+        border-radius: 50px;
+        border: none;
+        background: $color-white;
+        font-size: 0.9rem;
+
+        &::placeholder {
+          color: $color-onyx;
+          font-weight: 100;
+          font-size: 0.82rem;
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+
+    ::ng-deep .submit-button {
+      width: 100%;
+      background-color: transparent;
+      border: 0.1rem solid $color-white;
+      color: $color-white;
+      padding: 1rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background: darken($color-white, 5%);
+        color: $color-cardinal;
+      }
+    }
+  }
+}

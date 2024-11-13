@@ -6,11 +6,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-  @Input() label: string = 'button-default';
+  @Input() label?: string = 'button-default';
   @Input() link: string = '';
   @Input() customClass: string = 'button-default'; // Adiciona a propriedade customClass
   @Input() clickable: boolean = false; // Novo input para verificar se o botão é clicável
   @Output() onClick = new EventEmitter<void>(); // Evento de clique para emitir
+  @Input() disabled: boolean = false;
 
   handleClick() {
     if (this.clickable) {

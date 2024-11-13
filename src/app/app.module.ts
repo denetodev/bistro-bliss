@@ -41,6 +41,11 @@ import { MenuPageComponent } from './features/menu/menu-page/menu-page.component
 import { BlogModule } from './features/blog/blog.module';
 import { BlogHomeSectionComponent } from './features/home/blog-home-section/blog-home-section.component';
 import { HomeBlogCardComponent } from './shared/components/home-components/home-blog-card/home-blog-card.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CalendarModule } from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
@@ -83,6 +88,11 @@ import { HomeBlogCardComponent } from './shared/components/home-components/home-
     CardModule,
     DialogModule,
     BlogModule,
+    ReactiveFormsModule,
+    CalendarModule,
+    DropdownModule,
+    InputNumberModule,
+    InputTextareaModule,
   ],
   exports: [ButtonComponent],
   providers: [],
