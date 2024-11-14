@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './features/home/home.component';
 import { AboutComponent } from './features/about/about.component';
 import { MenuComponent } from './features/menu/menu.component';
-import { BlogComponent } from './features/blog/blog.component';
 import { ContactComponent } from './features/contact/contact.component';
 import { ReservationComponent } from './features/reservation/reservation.component';
 
@@ -22,7 +21,6 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { HeroComponent } from './features/home/hero/hero.component';
-import { ButtonComponent } from './shared/components/home-components/button/button.component';
 import { MenuSectionComponent } from './features/home/menu-section/menu-section.component';
 import { ServicesSectionComponent } from './features/home/services-section/services-section.component';
 import { TestimonialsComponent } from './features/home/testimonials/testimonials.component';
@@ -38,7 +36,6 @@ import { DialogModule } from 'primeng/dialog';
 import { ClientInfoComponent } from './features/about/client-info/client-info.component';
 import { DeliveryAppsComponent } from './features/menu/delivery-apps/delivery-apps.component';
 import { MenuPageComponent } from './features/menu/menu-page/menu-page.component';
-import { BlogModule } from './features/blog/blog.module';
 import { BlogHomeSectionComponent } from './features/home/blog-home-section/blog-home-section.component';
 import { HomeBlogCardComponent } from './shared/components/home-components/home-blog-card/home-blog-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -46,6 +43,9 @@ import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { SharedModule } from './shared/components/shared.module';
+import { BlogModule } from './features/blog/blog.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -55,11 +55,9 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     HomeComponent,
     AboutComponent,
     MenuComponent,
-    BlogComponent,
     ContactComponent,
     ReservationComponent,
     HeroComponent,
-    ButtonComponent,
     MenuSectionComponent,
     ServicesSectionComponent,
     TestimonialsComponent,
@@ -87,14 +85,17 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     ButtonModule,
     CardModule,
     DialogModule,
-    BlogModule,
+    HttpClientModule,
+
     ReactiveFormsModule,
     CalendarModule,
     DropdownModule,
     InputNumberModule,
     InputTextareaModule,
+    SharedModule,
+    BlogModule,
   ],
-  exports: [ButtonComponent],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent],
 })

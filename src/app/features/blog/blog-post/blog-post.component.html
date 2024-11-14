@@ -13,5 +13,13 @@
 
   <div class="post-tags">
     <span *ngFor="let tag of post.tags" class="tag">{{ tag }}</span>
+    <div class="button-container">
+      <app-button
+        label="Voltar para Blog"
+        [clickable]="true"
+        customClass="back-button"
+        (onClick)="goBack()"
+      ></app-button>
+    </div>
   </div>
 </div>

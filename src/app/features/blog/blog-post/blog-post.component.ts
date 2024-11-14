@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BlogPost } from '../../../shared/interfaces/blog.interface';
 import { BlogService } from '../../../shared/services/blog.service';
 
@@ -14,7 +14,8 @@ export class BlogPostComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private blogService: BlogService
+    private blogService: BlogService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -45,5 +46,9 @@ export class BlogPostComponent implements OnInit {
         console.error('Erro ao carregar conteúdo HTML:', error);
       },
     });
+  }
+
+  goBack(): void {
+    this.router.navigate(['/blog']);
   }
 }

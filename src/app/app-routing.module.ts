@@ -6,6 +6,7 @@ import { AboutComponent } from './features/about/about.component';
 import { MenuComponent } from './features/menu/menu.component';
 import { ContactComponent } from './features/contact/contact.component';
 import { ReservationComponent } from './features/reservation/reservation.component';
+import { BlogComponent } from './features/blog/blog.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
