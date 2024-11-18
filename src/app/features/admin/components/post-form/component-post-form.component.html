@@ -1,0 +1,107 @@
+<div class="post-form">
+  <h2>{{ editMode ? "Editar Post" : "Criar Novo Post" }}</h2>
+
+  <form #postForm="ngForm" (ngSubmit)="onSave()">
+    <div class="form-container">
+      <div class="main-content">
+        <!-- Cover Image Upload -->
+        <div class="cover-image-upload">
+          <div class="upload-area">
+            <i class="fas fa-file-upload"></i>
+            <p>Drop or select a cover image</p>
+          </div>
+        </div>
+
+        <!-- Title Input -->
+        <input
+          type="text"
+          name="title"
+          [(ngModel)]="formPost.title"
+          placeholder="Title"
+          class="title-input"
+          required
+        />
+
+        <!-- Content Editor -->
+        <div class="content-editor">
+          <div class="editor-toolbar">
+            <select class="font-select">
+              <option>Normal</option>
+              <option>Sans Serif</option>
+            </select>
+            <button><i class="fas fa-bold"></i></button>
+            <button><i class="fas fa-italic"></i></button>
+            <button><i class="fas fa-underline"></i></button>
+            <button><i class="fas fa-text-height"></i></button>
+            <button><i class="fas fa-list-ul"></i></button>
+            <button><i class="fas fa-list-ol"></i></button>
+            <button><i class="fas fa-link"></i></button>
+            <button><i class="fas fa-image"></i></button>
+            <button><i class="fas fa-code"></i></button>
+            <button><i class="fas fa-subscript"></i></button>
+          </div>
+          <textarea
+            name="content"
+            [(ngModel)]="formPost.content"
+            placeholder="Content"
+            class="content-area"
+            required
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <!-- Publish Section -->
+        <div class="sidebar-section">
+          <h3>Publish</h3>
+          <div class="status-row">
+            <span>Status:</span>
+            <span class="status-value">{{ formPost.status }}</span>
+            <button class="edit-button"><i class="fas fa-pen"></i></button>
+          </div>
+          <div class="visibility-row">
+            <span>Visibility:</span>
+            <span class="visibility-value">{{ formPost.visibility }}</span>
+            <button class="edit-button"><i class="fas fa-pen"></i></button>
+          </div>
+        </div>
+
+        <!-- Tags Section -->
+        <div class="sidebar-section">
+          <h3>Tags</h3>
+          <div class="tags-container">
+            <span class="tag" *ngFor="let tag of formPost.tags">{{ tag }}</span>
+          </div>
+        </div>
+
+        <!-- Meta Section -->
+        <div class="sidebar-section">
+          <h3>Meta</h3>
+          <input
+            type="text"
+            [(ngModel)]="formPost.meta.title"
+            name="metaTitle"
+            placeholder="Meta Title"
+          />
+          <textarea
+            [(ngModel)]="formPost.meta.description"
+            name="metaDescription"
+            placeholder="Meta Description"
+          ></textarea>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button type="button" class="discard-button" (click)="onDiscard()">
+            <i class="fas fa-trash"></i>
+            Descartar
+          </button>
+          <button type="submit" class="publish-button">
+            <i class="fas fa-paper-plane"></i>
+            {{ formPost.status === "Draft" ? "Publicar" : "Atualizar" }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,12 +1,20 @@
 export interface BlogPost {
-  id: number;
+  id?: string | number;
   title: string;
-  description: string; // Propriedade obrigatória
-  content: string; // Propriedade obrigatória
+  content: string;
+  contentUrl?: string;
+  status: 'Draft' | 'Published';
+  category: string;
+  imageUrl: string;
+  tags: string[];
   author: string;
   publishDate: Date;
-  imageUrl: string;
-  contentUrl: string;
-  category: string; // Propriedade obrigatória
-  tags: string[];
+  featuredImage?: string;
+  meta: {
+    title: string;
+    description: string;
+    keywords?: string[];
+  };
+  slug?: string;
+  visibility: 'Public' | 'Private';
 }

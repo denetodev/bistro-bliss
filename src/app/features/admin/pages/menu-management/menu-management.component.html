@@ -1,2 +1,43 @@
-<h2>Gestão de Menu</h2>
-<!-- Adicione a lógica e o template para gerenciar o menu -->
+<div class="menu-management">
+  <!-- Cabeçalho com ações -->
+  <div class="header">
+    <h2>Gestão do Menu</h2>
+    <button class="create-button" (click)="onCreateNew()">
+      <i class="fas fa-plus"></i> Novo Item
+    </button>
+  </div>
+
+  <!-- Lista de Itens do Menu -->
+  <div class="menu-list" *ngIf="!showForm">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Categoria</th>
+          <th>Preço</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of menuItems">
+          <td>{{ item.name }}</td>
+          <td>{{ item.category }}</td>
+          <td>{{ item.price | currency : "BRL" }}</td>
+          <td>{{ item.status }}</td>
+          <td>
+            <button (click)="onEdit(item)">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button (click)="onDelete(item)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Formulário -->
+  <app-menu-form *ngIf="showForm"></app-menu-form>
+</div>

@@ -1,0 +1,106 @@
+<div class="menu-form">
+  <h2>Criar Produto</h2>
+
+  <div class="form-container">
+    <div class="main-content">
+      <!-- Informações Básicas -->
+      <input type="text" 
+             [(ngModel)]="menuItem.name" 
+             placeholder="Nome do Produto" 
+             class="product-name">
+
+      <div class="product-details">
+        <input type="number" 
+               [(ngModel)]="menuItem.price" 
+               placeholder="Preço">
+        <input type="text" 
+               [(ngModel)]="menuItem.code" 
+               placeholder="Código do Produto">
+        <input type="text" 
+               [(ngModel)]="menuItem.sku" 
+               placeholder="SKU do Produto">
+      </div>
+
+      <!-- Editor de Descrição -->
+      <div class="description-editor">
+        <div class="editor-toolbar">
+          <select class="font-select">
+            <option>Normal</option>
+            <option>Sans Serif</option>
+          </select>
+          <button><i class="fas fa-bold"></i></button>
+          <button><i class="fas fa-italic"></i></button>
+          <button><i class="fas fa-underline"></i></button>
+          <button><i class="fas fa-text-height"></i></button>
+          <button><i class="fas fa-list-ul"></i></button>
+          <button><i class="fas fa-list-ol"></i></button>
+          <button><i class="fas fa-link"></i></button>
+          <button><i class="fas fa-image"></i></button>
+          <button><i class="fas fa-code"></i></button>
+        </div>
+        <textarea placeholder="Descrição do produto" class="description-area"></textarea>
+      </div>
+
+      <!-- Upload de Imagens -->
+      <div class="image-upload-area" (drop)="onImageDrop($event)">
+        <i class="fas fa-file-upload"></i>
+        <p>Arraste ou selecione imagens</p>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <!-- Status -->
+      <div class="sidebar-section">
+        <h3>Publicar</h3>
+        <div class="status-row">
+          <span>Status:</span>
+          <span class="status-value">{{menuItem.status}}</span>
+          <button class="edit-button"><i class="fas fa-pen"></i></button>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="sidebar-section">
+        <h3>Tags</h3>
+        <div class="tags-container">
+          <input type="text" placeholder="Adicionar tag">
+        </div>
+      </div>
+
+      <!-- Categoria -->
+      <div class="sidebar-section">
+        <h3>Categoria</h3>
+        <select [(ngModel)]="menuItem.category">
+          <option value="">Selecione uma categoria</option>
+          <option *ngFor="let category of categories" [value]="category">
+            {{category}}
+          </option>
+        </select>
+      </div>
+
+      <!-- Estoque -->
+      <div class="sidebar-section">
+        <h3>Estoque</h3>
+        <div class="stock-toggle">
+          <span>Em estoque</span>
+          <label class="switch">
+            <input type="checkbox" [(ngModel)]="menuItem.inStock">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Botões de Ação -->
+      <div class="action-buttons">
+        <button class="discard-button" (click)="onDiscard()">
+          <i class="fas fa-trash"></i>
+          Descartar
+        </button>
+        <button class="save-button" (click)="onSave()">
+          <i class="fas fa-save"></i>
+          Salvar
+        </button>
+      </div>
+    </div>
+  </div>
+</div> 

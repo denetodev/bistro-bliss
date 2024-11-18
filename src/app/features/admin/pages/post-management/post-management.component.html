@@ -1,2 +1,63 @@
-<h2>Gestão de Posts</h2>
-<!-- Adicione a lógica e o template para gerenciar posts -->
+<div class="post-management">
+  <div class="header">
+    <h2>Gestão de Posts</h2>
+    <button class="create-button" (click)="onCreateNew()">
+      <i class="fas fa-plus"></i> Novo Post
+    </button>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="loading-spinner">
+    <i class="fas fa-spinner fa-spin"></i> Carregando...
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div class="post-list" *ngIf="!showForm && !isLoading">
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Categoria</th>
+          <th>Autor</th>
+          <th>Data</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of blogPosts">
+          <td>{{ post.title }}</td>
+          <td>{{ post.category }}</td>
+          <td>{{ post.author }}</td>
+          <td>{{ post.publishDate | date : "dd/MM/yyyy" }}</td>
+          <td>{{ post.status }}</td>
+          <td>
+            <button (click)="onEdit(post)" class="edit-btn">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button (click)="onDelete(post)" class="delete-btn">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!isLoading && blogPosts.length === 0" class="empty-state">
+    <p>Nenhum post encontrado.</p>
+  </div>
+
+  <app-post-form
+    *ngIf="showForm"
+    [editMode]="!!selectedPost"
+    [editPost]="selectedPost!"
+    (savePost)="onSavePost($event)"
+    (cancel)="onCancelForm()"
+  ></app-post-form>
+</div>

@@ -1,127 +1,113 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { BlogPost } from '../interfaces/blog.interface';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BlogService {
+  private apiUrl = 'sua-api-url/posts'; // Será usado posteriormente
+
+  // Dados mockados para desenvolvimento
   private posts: BlogPost[] = [
     {
-      id: 1,
-      title: 'Como preparar um delicioso sushi sem glúten',
-      description:
-        'Aprenda a fazer sushi com alternativas sem glúten que mantêm todo o sabor tradicional.',
-      content: '', // Será carregado dinamicamente
-      contentUrl: '/assets/posts/post1.html',
-      imageUrl: '/assets/images/blog/sushi.jpg',
-      publishDate: new Date('2024-01-03'),
-      author: 'Chef Maria Silva',
-      category: 'Culinária Japonesa',
-      tags: ['Sem Glúten', 'Sushi', 'Japonesa'],
-    },
-    {
-      id: 2,
-      title: 'Pratos típicos da culinária mineira',
-      description:
-        'Explore os sabores autênticos das receitas tradicionais de Minas Gerais.',
-      content: '',
-      contentUrl: '/assets/posts/post2.html',
-      imageUrl: '/assets/images/blog/mineira.jpg',
-      publishDate: new Date('2024-01-15'),
-      author: 'Chef João Santos',
-      category: 'Culinária Brasileira',
-      tags: ['Mineira', 'Tradicional', 'Brasil'],
-    },
-    {
-      id: 3,
-      title: 'Sobremesas veganas para o verão',
-      description: 'Receitas refrescantes e saudáveis para os dias quentes.',
-      content: '',
-      contentUrl: '/assets/posts/post3.html',
-      imageUrl: '/assets/images/blog/vegana.jpg',
-      publishDate: new Date('2024-02-01'),
-      author: 'Chef Ana Oliveira',
-      category: 'Sobremesas',
-      tags: ['Vegano', 'Sobremesas', 'Verão'],
-    },
-    {
-      id: 4,
-      title: 'Técnicas avançadas de churrasco',
-      description:
-        'Dicas profissionais para elevar seu churrasco ao próximo nível.',
-      content: '',
-      contentUrl: '/assets/posts/post4.html',
+      id: '1',
+      title: 'Como fazer um churrasco perfeito',
+      content: 'Conteúdo sobre churrasco...',
+      status: 'Published',
+      category: 'Culinária',
       imageUrl: '/assets/images/blog/churrasco.jpg',
-      publishDate: new Date('2024-02-15'),
-      author: 'Chef Pedro Almeida',
-      category: 'Carnes',
-      tags: ['Churrasco', 'Carnes', 'Técnicas'],
+      tags: ['churrasco', 'carne', 'dicas'],
+      author: 'Chef João Silva',
+      publishDate: new Date('2024-01-15'),
+      meta: {
+        title: 'Guia definitivo para um churrasco perfeito',
+        description: 'Aprenda todas as técnicas...',
+      },
+      visibility: 'Public',
     },
     {
-      id: 5,
-      title: 'Café da manhã fit e nutritivo',
-      description: 'Receitas práticas e saudáveis para começar bem o dia.',
-      content: '',
-      contentUrl: '/assets/posts/post5.html',
-      imageUrl: '/assets/images/blog/cafe-manha.jpg',
-      publishDate: new Date('2024-03-01'),
-      author: 'Nutricionista Laura Costa',
-      category: 'Alimentação Saudável',
-      tags: ['Fit', 'Café da Manhã', 'Saudável'],
-    },
-    {
-      id: 6,
-      title: 'Drinks sem álcool para festas',
-      description: 'Mocktails criativos e refrescantes para todas as ocasiões.',
-      content: '',
-      contentUrl: '/assets/posts/post6.html',
-      imageUrl: '/assets/images/blog/drinks.jpg',
-      publishDate: new Date('2024-03-15'),
-      author: 'Mixologista Carlos Lima',
+      id: '2',
+      title: 'Drinks para o verão',
+      content: 'Conteúdo sobre drinks...',
+      status: 'Published',
       category: 'Bebidas',
-      tags: ['Drinks', 'Sem Álcool', 'Festas'],
+      imageUrl: '/assets/images/blog/drinks.jpg',
+      tags: ['drinks', 'verão', 'cocktails'],
+      author: 'Bartender Maria Santos',
+      publishDate: new Date('2024-01-20'),
+      meta: {
+        title: 'Os melhores drinks para o verão',
+        description: 'Receitas refrescantes...',
+      },
+      visibility: 'Public',
     },
-    {
-      id: 7,
-      title: 'Guia completo de fermentação natural',
-      description:
-        'Aprenda a fazer pães, kombucha e outros alimentos fermentados em casa.',
-      content: '',
-      contentUrl: '/assets/posts/post7.html',
-      imageUrl: '/assets/images/blog/fermentacao.jpg',
-      publishDate: new Date('2024-03-20'),
-      author: 'Chef Paula Ferreira',
-      category: 'Técnicas Culinárias',
-      tags: ['Fermentação', 'Pães', 'Kombucha', 'Artesanal'],
-    },
-    {
-      id: 8,
-      title: 'Pratos típicos da Páscoa ao redor do mundo',
-      description:
-        'Descubra como diferentes culturas celebram a Páscoa através da gastronomia.',
-      content: '',
-      contentUrl: '/assets/posts/post8.html',
-      imageUrl: '/assets/images/blog/pascoa.jpg',
-      publishDate: new Date('2024-03-25'),
-      author: 'Chef Ricardo Santos',
-      category: 'Culinária Internacional',
-      tags: ['Páscoa', 'Internacional', 'Tradições', 'Festas'],
-    },
+    // Adicione mais posts conforme necessário
   ];
 
   constructor(private http: HttpClient) {}
 
+  // Métodos temporários usando dados mockados
   getPosts(): Observable<BlogPost[]> {
-    return of(this.posts);
+    return of(this.posts); // Retorna os dados mockados
   }
 
-  getPostById(id: number): Observable<BlogPost | undefined> {
-    return of(this.posts.find((post) => post.id === id));
+  getPostById(id: string | number): Observable<BlogPost> {
+    const post = this.posts.find((p) => p.id?.toString() === id.toString());
+    if (post) {
+      return of(post);
+    }
+    return throwError(() => new Error('Post não encontrado'));
+  }
+
+  createPost(post: BlogPost): Observable<BlogPost> {
+    const newPost = { ...post, id: (this.posts.length + 1).toString() };
+    this.posts.push(newPost);
+    return of(newPost);
+  }
+
+  updatePost(post: BlogPost): Observable<BlogPost> {
+    const index = this.posts.findIndex((p) => p.id === post.id);
+    if (index !== -1) {
+      this.posts[index] = post;
+      return of(post);
+    }
+    return throwError(() => new Error('Post não encontrado'));
+  }
+
+  deletePost(id: string | number): Observable<void> {
+    const index = this.posts.findIndex(
+      (p) => p.id?.toString() === id.toString()
+    );
+    if (index !== -1) {
+      this.posts.splice(index, 1);
+      return of(void 0);
+    }
+    return throwError(() => new Error('Post não encontrado'));
   }
 
   getPostContent(url: string): Observable<string> {
-    return this.http.get(url, { responseType: 'text' });
+    // Simula o carregamento do conteúdo
+    return of(`
+      <h1>Conteúdo do Post</h1>
+      <p>Este é um conteúdo de exemplo para o post.</p>
+      <p>Em um ambiente real, este conteúdo seria carregado da API ou de um arquivo.</p>
+    `);
+  }
+
+  // Mantenha o método handleError para uso futuro com a API real
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = 'Ocorreu um erro na operação.';
+
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `Erro: ${error.error.message}`;
+    } else {
+      errorMessage = `Código: ${error.status}, Mensagem: ${error.message}`;
+    }
+
+    console.error(errorMessage);
+    return throwError(() => new Error(errorMessage));
   }
 }

@@ -1,0 +1,108 @@
+<div class="post-form">
+  <div class="form-container">
+    <div class="main-content">
+      <!-- Título do Post -->
+      <input
+        type="text"
+        [(ngModel)]="post.title"
+        placeholder="Título do Post"
+        class="post-title"
+      />
+
+      <!-- Editor de Conteúdo -->
+      <div class="editor-container">
+        <div class="editor-toolbar">
+          <select class="font-select">
+            <option>Normal</option>
+            <option>Título 1</option>
+            <option>Título 2</option>
+          </select>
+          <button><i class="fas fa-bold"></i></button>
+          <button><i class="fas fa-italic"></i></button>
+          <button><i class="fas fa-link"></i></button>
+          <button><i class="fas fa-image"></i></button>
+        </div>
+        <textarea
+          [(ngModel)]="post.content"
+          placeholder="Conteúdo do post..."
+          class="content-editor"
+        >
+        </textarea>
+      </div>
+
+      <!-- Upload de Imagem -->
+      <div class="image-upload">
+        <h3>Imagem de Destaque</h3>
+        <div
+          class="upload-area"
+          [class.has-image]="post.imageUrl"
+          [style.backgroundImage]="
+            post.imageUrl ? 'url(' + post.imageUrl + ')' : 'none'
+          "
+        >
+          <input
+            type="file"
+            accept="image/*"
+            (change)="onImageUpload($event)"
+          />
+          <i class="fas fa-cloud-upload-alt" *ngIf="!post.imageUrl"></i>
+          <span *ngIf="!post.imageUrl"
+            >Arraste uma imagem ou clique para fazer upload</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <!-- Status de Publicação -->
+      <div class="sidebar-section">
+        <h3>Publicação</h3>
+        <select [(ngModel)]="post.status">
+          <option value="Draft">Rascunho</option>
+          <option value="Published">Publicado</option>
+        </select>
+      </div>
+
+      <!-- Categoria -->
+      <div class="sidebar-section">
+        <h3>Categoria</h3>
+        <select [(ngModel)]="post.category">
+          <option value="">Selecione uma categoria</option>
+          <option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Tags -->
+      <div class="sidebar-section">
+        <h3>Tags</h3>
+        <div class="tags-input">
+          <input
+            type="text"
+            placeholder="Adicione uma tag e pressione Enter"
+            (keyup.enter)="addTag($event)"
+          />
+          <div class="tags-list">
+            <span class="tag" *ngFor="let tag of post.tags">
+              {{ tag }}
+              <i class="fas fa-times" (click)="removeTag(tag)"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data de Publicação -->
+      <div class="sidebar-section">
+        <h3>Data de Publicação</h3>
+        <input type="datetime-local" [(ngModel)]="post.publishDate" />
+      </div>
+
+      <!-- Botões de Ação -->
+      <div class="action-buttons">
+        <button class="cancel-button" (click)="onCancel()">Cancelar</button>
+        <button class="save-button" (click)="onSave()">Salvar Post</button>
+      </div>
+    </div>
+  </div>
+</div>
