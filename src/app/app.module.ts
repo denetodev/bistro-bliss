@@ -46,6 +46,9 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { SharedModule } from './shared/components/shared.module';
 import { BlogModule } from './features/blog/blog.module';
 import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AuthModule } from './features/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -86,6 +89,7 @@ import { HttpClientModule } from '@angular/common/http';
     CardModule,
     DialogModule,
     HttpClientModule,
+    AuthModule,
 
     ReactiveFormsModule,
     CalendarModule,
@@ -94,9 +98,10 @@ import { HttpClientModule } from '@angular/common/http';
     InputTextareaModule,
     SharedModule,
     BlogModule,
+    FormsModule,
   ],
   exports: [],
-  providers: [],
+  providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
