@@ -8,6 +8,8 @@ export interface MenuItem {
   description: string;
   category: MenuCategory;
   isAvailable: boolean;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export enum MenuCategory {

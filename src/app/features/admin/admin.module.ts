@@ -1,107 +1,68 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from '../../app-routing.module';
-import { MenubarModule } from 'primeng/menubar';
-
-// Componentes do Core
-import { HeaderComponent } from '../../core/header/header.component';
-import { FooterComponent } from '../../core/footer/footer.component';
-
-// Componentes das Features
-import { AppComponent } from '../../app.component';
-import { HomeComponent } from '../../features/home/home.component';
-import { AboutComponent } from '../../features/about/about.component';
-import { MenuComponent } from '../../features/menu/menu.component';
-import { ContactComponent } from '../../features/contact/contact.component';
-import { ReservationComponent } from '../../features/reservation/reservation.component';
-
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { HeroComponent } from '../../features/home/hero/hero.component';
-import { MenuSectionComponent } from '../../features/home/menu-section/menu-section.component';
-import { ServicesSectionComponent } from '../../features/home/services-section/services-section.component';
-import { TestimonialsComponent } from '../../features/home/testimonials/testimonials.component';
-import { DeliverySectionComponent } from '../../features/home/delivery-section/delivery-section.component';
-import { MenuCardComponent } from '../../shared/components/menu-components/menu-card/menu-card.component';
-import { MenuCardHomeComponent } from '../../shared/components/home-components/menu-card-home/menu-card-home.component';
-import { AboutSectionComponent } from '../../features/home/about-section/about-section.component';
-import { ImageAndCardComponent } from '../../shared/components/home-components/image-and-card/image-and-card.component';
-import { TestimonialCardComponent } from '../../shared/components/home-components/testimonial-card/testimonial-card.component';
-import { AboutSectionPrincipalComponent } from '../../features/about/about-section-principal/about-section-principal.component';
-import { AboutRestaurantAmbienceComponent } from '../../features/about/about-restaurant-ambience/about-restaurant-ambience.component';
-import { DialogModule } from 'primeng/dialog';
-import { ClientInfoComponent } from '../../features/about/client-info/client-info.component';
-import { DeliveryAppsComponent } from '../../features/menu/delivery-apps/delivery-apps.component';
-import { MenuPageComponent } from '../../features/menu/menu-page/menu-page.component';
-import { BlogHomeSectionComponent } from '../../features/home/blog-home-section/blog-home-section.component';
-import { HomeBlogCardComponent } from '../../shared/components/home-components/home-blog-card/home-blog-card.component';
+import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CalendarModule } from 'primeng/calendar';
-import { DropdownModule } from 'primeng/dropdown';
-import { InputNumberModule } from 'primeng/inputnumber';
+// PrimeNG Modules
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { SharedModule } from '../../shared/components/shared.module';
-import { BlogModule } from '../../features/blog/blog.module';
-import { HttpClientModule } from '@angular/common/http';
-import { provideHttpClient, withFetch } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { AuthModule } from '../../features/auth/auth.module';
+import { DropdownModule } from 'primeng/dropdown';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ChipModule } from 'primeng/chip';
+import { TagModule } from 'primeng/tag';
+import { CardModule } from 'primeng/card';
+
+// Components
+import { PostListComponent } from './pages/post-management/post-list/post-list.component';
+import { MenuListComponent } from './pages/menu-menagement/menu-list/menu-list.component';
+import { MenuFormComponent } from './pages/menu-menagement/menu-form/menu-form.component';
+import { ReservationListComponent } from './pages/reservation-menagement/reservation-list/reservation-list.component';
+import { ContactListComponent } from './pages/contact-menagement/contact-list/contact-list.component';
+import { ContactDetailModalComponent } from './pages/contact-menagement/contact-detail-modal/contact-detail-modal.component';
+
+// Services
+import { PostService } from './services/post.service';
+import { MenuService } from './services/menu.service';
+import { ReservationService } from './services/reservation.service';
+import { ContactService } from './services/contact.service';
+import { AdminRoutingModule } from './admin-routing.module';
+import { AdminComponent } from './admin.component';
+import { AdminTableModule } from './components/table/admin-table.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    AboutComponent,
-    MenuComponent,
-    ContactComponent,
-    ReservationComponent,
-    HeroComponent,
-    MenuSectionComponent,
-    ServicesSectionComponent,
-    TestimonialsComponent,
-    DeliverySectionComponent,
-    MenuCardComponent,
-    AboutSectionComponent,
-    ImageAndCardComponent,
-    TestimonialCardComponent,
-    AboutSectionPrincipalComponent,
-    AboutRestaurantAmbienceComponent,
-    ClientInfoComponent,
-    DeliveryAppsComponent,
-    MenuPageComponent,
-    MenuCardHomeComponent,
-    BlogHomeSectionComponent,
-    HomeBlogCardComponent,
+    AdminComponent,
+    PostListComponent,
+    MenuListComponent,
+    MenuFormComponent,
+    ReservationListComponent,
+    ContactListComponent,
+    ContactDetailModalComponent,
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    MenubarModule,
-    RouterModule,
     CommonModule,
+    RouterModule,
+    AdminTableModule,
+    // PrimeNG Modules
+    TableModule,
     ButtonModule,
-    CardModule,
-    DialogModule,
-    HttpClientModule,
-    AuthModule,
-
     ReactiveFormsModule,
-    CalendarModule,
-    DropdownModule,
-    InputNumberModule,
+    DialogModule,
+    InputTextModule,
     InputTextareaModule,
-    SharedModule,
-    BlogModule,
-    FormsModule,
+    DropdownModule,
+    FileUploadModule,
+    ToastModule,
+    ConfirmDialogModule,
+    ChipModule,
+    TagModule,
+    CardModule,
+    AdminRoutingModule,
   ],
-  exports: [],
-  providers: [provideHttpClient(withFetch())],
-  bootstrap: [AppComponent],
+  providers: [PostService, MenuService, ReservationService, ContactService],
 })
-export class AppModule {}
+export class AdminModule {}

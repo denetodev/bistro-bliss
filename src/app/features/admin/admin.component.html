@@ -1,0 +1,26 @@
+<div class="admin-layout">
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <h2>Painel Administrativo</h2>
+    </div>
+    <div class="sidebar-menu">
+      <div *ngFor="let section of menuItems" class="menu-section">
+        <h3 class="section-title">{{ section.label }}</h3>
+        <ul class="menu-items">
+          <li
+            *ngFor="let item of section.children"
+            class="menu-item"
+            [routerLink]="item.route"
+            routerLinkActive="active"
+          >
+            <i class="material-icons">{{ item.icon }}</i>
+            <span>{{ item.label }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -2,8 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { PostService } from '../../services/post.service';
-import { Post } from '../../interfaces/post.interface';
+import { PostService } from '../../../services/post.service';
+import { Post } from '../../../interfaces/post.interface';
 
 @Component({
   selector: 'app-post-list',
@@ -51,7 +51,9 @@ export class PostListComponent implements OnInit {
     this.confirmationService.confirm({
       message: 'Tem certeza que deseja excluir este post?',
       accept: () => {
-        this.postService.deletePost(post.id).subscribe({
+        const postId = Number(post.id);
+
+        this.postService.deletePost(postId).subscribe({
           next: () => {
             this.messageService.add({
               severity: 'success',
@@ -76,7 +78,8 @@ export class PostListComponent implements OnInit {
     this.confirmationService.confirm({
       message: 'Tem certeza que deseja excluir os posts selecionados?',
       accept: () => {
-        const postIds = this.selectedPosts.map((post) => post.id);
+        const postIds = this.selectedPosts.map((post) => Number(post.id));
+
         this.postService.deleteMultiplePosts(postIds).subscribe({
           next: () => {
             this.messageService.add({
