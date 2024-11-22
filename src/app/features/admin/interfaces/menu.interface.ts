@@ -1,20 +1,27 @@
+export type ProductCategory =
+  | 'Café da Manhã'
+  | 'Prato Principal'
+  | 'Bebidas'
+  | 'Sobremesas';
+
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+  code: string;
+  sku: string;
+  image: string;
+  description: string;
+  category: ProductCategory;
+  availability: boolean;
+}
+
 export interface MenuItem {
   id: number;
   name: string;
   price: number;
-  productCode: string;
-  sku: string;
-  coverImage: string;
-  description: string;
-  category: MenuCategory;
-  isAvailable: boolean;
-  createdAt: Date;
-  updatedAt: Date;
+  category: ProductCategory;
+  // Outros campos conforme necessário
 }
 
-export enum MenuCategory {
-  BREAKFAST = 'BREAKFAST',
-  MAIN_COURSE = 'MAIN_COURSE',
-  DRINKS = 'DRINKS',
-  DESSERTS = 'DESSERTS',
-}
+export type MenuCategory = ProductCategory;

@@ -1,18 +1,11 @@
+export type ReservationStatus = 'Pendente' | 'Confirmada' | 'Cancelada';
+
 export interface Reservation {
   id: number;
-  customerName: string;
-  email: string;
-  phone: string;
-  date: Date;
+  date: string;
   time: string;
-  numberOfPeople: number;
+  name: string;
+  contact: string;
+  people: number;
   status: ReservationStatus;
-  specialRequests?: string;
-  createdAt: Date;
-}
-
-export enum ReservationStatus {
-  PENDING = 'PENDING',
-  CONFIRMED = 'CONFIRMED',
-  CANCELLED = 'CANCELLED',
 }

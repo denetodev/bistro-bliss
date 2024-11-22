@@ -1,0 +1,40 @@
+.card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
+
+  h2 {
+    margin: 0;
+    color: var(--text-color);
+  }
+}
+
+:host ::ng-deep {
+  .p-button.p-button-icon-only {
+    width: 2.5rem;
+  }
+
+  .p-datatable {
+    .p-datatable-header {
+      background: #f8f9fa;
+    }
+
+    .p-datatable-thead > tr > th {
+      background: #f8f9fa;
+      color: var(--text-color);
+      font-weight: 600;
+    }
+
+    .p-datatable-tbody > tr {
+      &:nth-child(even) {
+        background: #f8f9fa;
+      }
+
+      > td {
+        padding: 0.75rem 1rem;
+      }
+    }
+  }
+}

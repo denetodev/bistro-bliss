@@ -10,7 +10,7 @@
           <li
             *ngFor="let item of section.children"
             class="menu-item"
-            [routerLink]="item.route"
+            [routerLink]="[item.route]"
             routerLinkActive="active"
           >
             <i class="material-icons">{{ item.icon }}</i>

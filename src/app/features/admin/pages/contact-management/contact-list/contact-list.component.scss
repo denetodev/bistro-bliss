@@ -1,0 +1,61 @@
+.contact-list-container {
+  padding: 1.5rem;
+
+  h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+  }
+
+  .contact-name {
+    color: var(--primary-color);
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .status-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+
+    &.positive {
+      background-color: var(--green-100);
+      color: var(--green-900);
+    }
+
+    &.negative {
+      background-color: var(--red-100);
+      color: var(--red-900);
+    }
+  }
+}
+
+.contact-details {
+  .detail-row {
+    margin-bottom: 1rem;
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-color-secondary);
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+  }
+}
+
+:host ::ng-deep {
+  .p-button {
+    &.active {
+      box-shadow: 0 0 0 2px var(--primary-color);
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+
+<div class="card">
+  <h2>Gestão de Reservas</h2>
+
+  <p-table
+    [value]="reservations"
+    [loading]="loading"
+    [paginator]="true"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    currentPageReportTemplate="Mostrando {first} até {last} de {totalRecords} reservas"
+    [globalFilterFields]="['name', 'contact']"
+    styleClass="p-datatable-striped"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Data</th>
+        <th>Horário</th>
+        <th>Cliente</th>
+        <th>Contato</th>
+        <th>Pessoas</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-reservation>
+      <tr>
+        <td>{{ reservation.date | date : "dd/MM/yyyy" }}</td>
+        <td>{{ reservation.time }}</td>
+        <td>{{ reservation.name }}</td>
+        <td>{{ reservation.contact }}</td>
+        <td>{{ reservation.people }}</td>
+        <td>
+          <p-tag
+            [value]="reservation.status"
+            [severity]="getStatusSeverity(reservation.status)"
+          >
+          </p-tag>
+        </td>
+        <td>
+          <div class="action-buttons">
+            <p-button
+              icon="pi pi-check"
+              severity="success"
+              [disabled]="reservation.status === 'Confirmada'"
+              (onClick)="updateStatus(reservation.id, 'Confirmada')"
+              tooltipPosition="top"
+              pTooltip="Confirmar Reserva"
+            >
+            </p-button>
+            <p-button
+              icon="pi pi-times"
+              severity="danger"
+              [disabled]="reservation.status === 'Cancelada'"
+              (onClick)="updateStatus(reservation.id, 'Cancelada')"
+              tooltipPosition="top"
+              pTooltip="Cancelar Reserva"
+            >
+            </p-button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
