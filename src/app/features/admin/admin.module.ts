@@ -18,7 +18,6 @@ import { CardModule } from 'primeng/card';
 import { InputSwitchModule } from 'primeng/inputswitch';
 
 // Components
-import { PostListComponent } from './pages/post-management/post-list/post-list.component';
 import { MenuListComponent } from './pages/menu-management/menu-list/menu-list.component';
 import { MenuFormComponent } from './pages/menu-management/menu-form/menu-form.component';
 import { ReservationListComponent } from './pages/reservation-management/reservation-list/reservation-list.component';
@@ -35,11 +34,12 @@ import { AdminTableModule } from './components/table/admin-table.module';
 import { ContactManagementModule } from './pages/contact-management/contact-management.module';
 import { TooltipModule } from 'primeng/tooltip';
 import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+import { PostManagementModule } from './pages/post-management/post-management.module';
 
 @NgModule({
   declarations: [
     AdminComponent,
-    PostListComponent,
     MenuListComponent,
     MenuFormComponent,
     ReservationListComponent,
@@ -68,6 +68,7 @@ import { ConfirmationService } from 'primeng/api';
     TagModule,
     CardModule,
     InputSwitchModule,
+    PostManagementModule,
   ],
   providers: [
     PostService,
@@ -75,6 +76,7 @@ import { ConfirmationService } from 'primeng/api';
     ReservationService,
     ContactService,
     ConfirmationService,
+    MessageService,
   ],
 })
 export class AdminModule {}

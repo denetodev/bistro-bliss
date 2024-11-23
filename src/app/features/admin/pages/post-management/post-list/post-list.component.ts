@@ -14,8 +14,6 @@ import { Post } from '../../../interfaces/post.interface';
 export class PostListComponent implements OnInit {
   posts: Post[] = [];
   selectedPosts: Post[] = [];
-  showPostForm: boolean = false;
-  editingPost: Post | null = null;
 
   constructor(
     private postService: PostService,
@@ -33,7 +31,7 @@ export class PostListComponent implements OnInit {
       next: (data) => {
         this.posts = data;
       },
-      error: (error) => {
+      error: () => {
         this.messageService.add({
           severity: 'error',
           summary: 'Erro',
@@ -51,9 +49,7 @@ export class PostListComponent implements OnInit {
     this.confirmationService.confirm({
       message: 'Tem certeza que deseja excluir este post?',
       accept: () => {
-        const postId = Number(post.id);
-
-        this.postService.deletePost(postId).subscribe({
+        this.postService.deletePost(post.id).subscribe({
           next: () => {
             this.messageService.add({
               severity: 'success',
@@ -78,9 +74,7 @@ export class PostListComponent implements OnInit {
     this.confirmationService.confirm({
       message: 'Tem certeza que deseja excluir os posts selecionados?',
       accept: () => {
-        const postIds = this.selectedPosts.map((post) => Number(post.id));
-
-        this.postService.deleteMultiplePosts(postIds).subscribe({
+        this.postService.deleteAllPosts().subscribe({
           next: () => {
             this.messageService.add({
               severity: 'success',
@@ -89,6 +83,13 @@ export class PostListComponent implements OnInit {
             });
             this.selectedPosts = [];
             this.loadPosts();
+          },
+          error: () => {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Erro',
+              detail: 'Erro ao excluir posts',
+            });
           },
         });
       },

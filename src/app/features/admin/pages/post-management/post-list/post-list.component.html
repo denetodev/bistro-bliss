@@ -33,7 +33,6 @@
     responsiveLayout="scroll"
     currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} posts"
     [rowsPerPageOptions]="[10, 25, 50]"
-    [filterDelay]="0"
     [globalFilterFields]="['title', 'author']"
   >
     <ng-template pTemplate="header">
@@ -61,7 +60,7 @@
         </td>
         <td>{{ post.title }}</td>
         <td>{{ post.author }}</td>
-        <td>{{ post.createdAt | date : "dd/MM/yyyy" }}</td>
+        <td>{{ post.createdAt | date: 'dd/MM/yyyy' }}</td>
         <td>
           <button
             pButton

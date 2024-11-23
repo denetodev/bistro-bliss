@@ -1,1 +1,47 @@
-<p>post-form works!</p>
+<form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="p-4">
+  <div class="field mb-4">
+    <label for="title" class="block mb-2">Título do Post</label>
+    <input id="title" pInputText formControlName="title" class="w-full" />
+  </div>
+
+  <div class="field mb-4">
+    <label for="author" class="block mb-2">Autor</label>
+    <input id="author" pInputText formControlName="author" class="w-full" />
+  </div>
+
+  <div class="field mb-4">
+    <label for="coverImage" class="block mb-2">Imagem de Capa</label>
+    <p-fileUpload
+      mode="basic"
+      name="coverImage"
+      [auto]="true"
+      chooseLabel="Escolher Imagem"
+    ></p-fileUpload>
+  </div>
+
+  <div class="field mb-4">
+    <label for="content" class="block mb-2">Conteúdo</label>
+    <p-editor
+      formControlName="content"
+      [style]="{ height: '320px' }"
+    ></p-editor>
+  </div>
+
+  <div class="field mb-4">
+    <label for="tags" class="block mb-2">Tags</label>
+    <p-chips formControlName="tags"></p-chips>
+  </div>
+
+  <div class="flex justify-content-end gap-2">
+    <p-button
+      label="Cancelar"
+      (onClick)="onCancel()"
+      styleClass="p-button-secondary"
+    ></p-button>
+    <p-button
+      label="Salvar"
+      type="submit"
+      [disabled]="!postForm.valid"
+    ></p-button>
+  </div>
+</form>

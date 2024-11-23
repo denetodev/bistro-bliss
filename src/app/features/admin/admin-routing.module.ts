@@ -7,6 +7,8 @@ import { ReservationListComponent } from './pages/reservation-management/reserva
 import { ContactListComponent } from './pages/contact-management/contact-list/contact-list.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PostListComponent } from './pages/post-management/post-list/post-list.component';
+import { MenuFormComponent } from './pages/menu-management/menu-form/menu-form.component';
+import { MenuEditComponent } from './pages/menu-management/menu-edit/menu-edit.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
       {
         path: 'posts/edit/:id',
         component: PostFormComponent,
+      },
+      {
+        path: 'menu/new',
+        component: MenuFormComponent,
+      },
+      {
+        path: 'menu/edit/:id',
+        component: MenuEditComponent,
       },
     ],
   },
