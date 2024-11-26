@@ -1,3 +1,5 @@
+@import "../../../../../../style/variables.scss";
+
 .contact-list-container {
   padding: 1.5rem;
 
@@ -57,5 +59,104 @@
     &.active {
       box-shadow: 0 0 0 2px var(--primary-color);
     }
+  }
+}
+.admin-container {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+}
+
+:host ::ng-deep {
+  .admin-table {
+    .p-datatable-header {
+      background: transparent;
+      border: none;
+    }
+
+    .p-datatable-thead > tr > th {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #e0e0e0;
+      color: #333;
+      font-weight: 600;
+      padding: 1rem;
+    }
+
+    .p-datatable-tbody > tr {
+      border-bottom: 1px solid #f0f0f0;
+
+      td {
+        padding: 1rem;
+        border: none;
+      }
+
+      &:hover {
+        background-color: #f8f9fa;
+      }
+    }
+
+    .p-paginator {
+      background: transparent;
+      border: none;
+      padding: 1rem 0;
+    }
+  }
+}
+
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  display: inline-block;
+  text-align: center;
+  min-width: 100px;
+
+  &.pendente {
+    background: #fff3cd;
+    color: #856404;
+  }
+
+  &.positivo {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  &.negativo {
+    background: #f8d7da;
+    color: #721c24;
+  }
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+
+  button {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+
+    &:disabled {
+      opacity: 0.6;
+    }
+  }
+}
+
+.clickable-text {
+  color: #2196f3;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: darken(#2196f3, 10%);
   }
 }

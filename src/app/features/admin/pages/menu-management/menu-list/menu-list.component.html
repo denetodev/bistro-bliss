@@ -2,40 +2,32 @@
 <p-confirmDialog></p-confirmDialog>
 
 <div class="card">
-  <div class="flex justify-content-between mb-4">
-    <h2>Gestão de Menu</h2>
-    <div class="flex gap-2">
-      <p-button 
-        icon="pi pi-trash" 
-        severity="danger"
+  <div class="header-container">
+    <h1>Gestão de Menu - Cardápio</h1>
+    <div class="action-buttons">
+      <button class="action-btn new" [routerLink]="['new']">
+        + Novo Produto
+      </button>
+      <button
+        class="action-btn delete-selected"
+        (click)="deleteSelectedProducts()"
         [disabled]="!selectedProducts.length"
-        (onClick)="confirmDeleteSelected()"
-        label="Excluir Selecionados">
-      </p-button>
-      
-      <p-button 
-        icon="pi pi-plus" 
-        (onClick)="createProduct()"
-        label="Novo Produto">
-      </p-button>
+      >
+        <i class="pi pi-trash"></i> Excluir Selecionados
+      </button>
     </div>
   </div>
 
-  <p-table 
-    [value]="products" 
+  <p-table
+    [value]="products"
     [(selection)]="selectedProducts"
-    [loading]="loading"
-    [paginator]="true" 
+    [paginator]="true"
     [rows]="10"
-    [showCurrentPageReport]="true"
-    [rowsPerPageOptions]="[10, 25, 50]"
-    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} produtos"
-    [globalFilterFields]="['name', 'code', 'sku']"
-    styleClass="p-datatable-striped">
-
+    styleClass="custom-table"
+  >
     <ng-template pTemplate="header">
       <tr>
-        <th style="width: 4rem">
+        <th style="width: 3rem">
           <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
         </th>
         <th>Nome</th>
@@ -53,31 +45,30 @@
         <td>
           <p-tableCheckbox [value]="product"></p-tableCheckbox>
         </td>
-        <td>{{product.name}}</td>
-        <td>{{product.price | currency:'BRL'}}</td>
-        <td>{{product.code}}</td>
-        <td>{{product.sku}}</td>
-        <td>{{product.category}}</td>
+        <td>{{ product.name }}</td>
+        <td>R${{ product.price }}</td>
+        <td>{{ product.code }}</td>
+        <td>{{ product.sku }}</td>
+        <td>{{ product.category }}</td>
         <td>
-          <p-inputSwitch 
-            [(ngModel)]="product.availability"
-            (onChange)="onToggleAvailability(product.id)">
-          </p-inputSwitch>
+          <p-inputSwitch [(ngModel)]="product.available"></p-inputSwitch>
         </td>
         <td>
-          <div class="flex gap-2">
-            <p-button 
-              icon="pi pi-pencil" 
-              severity="info"
-              (onClick)="editProduct(product.id)"
-              pTooltip="Editar">
-            </p-button>
-            <p-button 
-              icon="pi pi-trash" 
-              severity="danger"
-              (onClick)="confirmDelete(product)"
-              pTooltip="Excluir">
-            </p-button>
+          <div class="row-actions">
+            <button
+              pButton
+              pRipple
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-success mr-2"
+              (click)="editProduct(product)"
+            ></button>
+            <button
+              pButton
+              pRipple
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-danger"
+              (click)="deleteProduct(product)"
+            ></button>
           </div>
         </td>
       </tr>

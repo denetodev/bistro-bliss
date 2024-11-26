@@ -1,39 +1,79 @@
-<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="name">Nome do Produto</label>
-    <input id="name" formControlName="name" type="text" />
-  </div>
-  <div class="form-group">
-    <label for="price">Preço</label>
-    <input id="price" formControlName="price" type="number" />
-  </div>
-  <div class="form-group">
-    <label for="code">Código do Produto</label>
-    <input id="code" formControlName="code" type="text" />
-  </div>
-  <div class="form-group">
-    <label for="sku">SKU do Produto</label>
-    <input id="sku" formControlName="sku" type="text" />
-  </div>
-  <div class="form-group">
-    <label for="image">Imagem de Capa</label>
-    <p-fileUpload name="image" formControlName="image"></p-fileUpload>
-  </div>
-  <div class="form-group">
-    <label for="description">Descrição do Produto</label>
-    <textarea id="description" formControlName="description"></textarea>
-  </div>
-  <div class="form-group">
-    <label for="category">Categoria</label>
-    <select id="category" formControlName="category">
-      <option value="Café da Manhã">Café da Manhã</option>
-      <option value="Prato Principal">Prato Principal</option>
-      <option value="Bebidas">Bebidas</option>
-      <option value="Sobremesas">Sobremesas</option>
-    </select>
-  </div>
-  <div class="button-group">
-    <button type="submit">Salvar</button>
-    <button type="button" (click)="onCancel()">Cancelar</button>
-  </div>
-</form>
+<div class="form-container">
+  <h2>Inserir Novo Post</h2>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <input
+        type="text"
+        placeholder="Nome do Produto"
+        formControlName="name"
+        class="full-width"
+      />
+      <select formControlName="category" class="category-select">
+        <option value="" disabled selected>Categoria</option>
+        <option value="Café da Manhã">Café da Manhã</option>
+        <option value="Prato Principal">Prato Principal</option>
+        <option value="Bebidas">Bebidas</option>
+        <option value="Sobremesas">Sobremesas</option>
+      </select>
+    </div>
+
+    <div class="form-row three-columns">
+      <input type="number" placeholder="Preço" formControlName="price" />
+      <input
+        type="text"
+        placeholder="Código do Produto"
+        formControlName="code"
+      />
+      <input type="text" placeholder="SKU do Produto" formControlName="sku" />
+    </div>
+
+    <div class="image-upload-container">
+      <div class="upload-area" (click)="fileInput.click()">
+        <i class="far fa-image"></i>
+        <p>Arraste ou Selecione uma imagem de capa</p>
+        <input
+          #fileInput
+          type="file"
+          hidden
+          formControlName="image"
+          (change)="onFileSelected($event)"
+        />
+      </div>
+    </div>
+
+    <div class="editor-container">
+      <div class="editor-toolbar">
+        <select class="font-select">
+          <option>Normal</option>
+          <option>Sans Serif</option>
+        </select>
+        <div class="formatting-buttons">
+          <button type="button"><i class="fas fa-bold"></i></button>
+          <button type="button"><i class="fas fa-italic"></i></button>
+          <button type="button"><i class="fas fa-underline"></i></button>
+          <!-- Adicione mais botões conforme necessário -->
+        </div>
+      </div>
+      <textarea
+        formControlName="description"
+        placeholder="Descrição do produto..."
+        class="content-editor"
+      ></textarea>
+    </div>
+
+    <div class="button-container">
+      <button type="submit" class="btn-save p-button-success" pButton>
+        <i class="pi pi-save"></i> Salvar
+      </button>
+      <button
+        type="button"
+        class="btn-cancel p-button-danger"
+        pButton
+        (click)="onCancel()"
+      >
+        <i class="pi pi-times"></i> Cancelar
+      </button>
+    </div>
+  </form>
+</div>

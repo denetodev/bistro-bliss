@@ -2,18 +2,14 @@
 <p-confirmDialog></p-confirmDialog>
 
 <div class="card">
-  <h2>Gestão de Reservas</h2>
+  <h2>Gestão Reservas</h2>
 
   <p-table
     [value]="reservations"
     [loading]="loading"
     [paginator]="true"
     [rows]="10"
-    [showCurrentPageReport]="true"
-    [rowsPerPageOptions]="[10, 25, 50]"
-    currentPageReportTemplate="Mostrando {first} até {last} de {totalRecords} reservas"
-    [globalFilterFields]="['name', 'contact']"
-    styleClass="p-datatable-striped"
+    styleClass="p-datatable-custom"
   >
     <ng-template pTemplate="header">
       <tr>
@@ -21,7 +17,7 @@
         <th>Horário</th>
         <th>Cliente</th>
         <th>Contato</th>
-        <th>Pessoas</th>
+        <th>Nº de Pessoas</th>
         <th>Status</th>
         <th>Ações</th>
       </tr>
@@ -35,32 +31,22 @@
         <td>{{ reservation.contact }}</td>
         <td>{{ reservation.people }}</td>
         <td>
-          <p-tag
-            [value]="reservation.status"
-            [severity]="getStatusSeverity(reservation.status)"
-          >
-          </p-tag>
+          <span class="status-badge" [ngClass]="reservation.status.toLowerCase()">
+            {{ reservation.status }}
+          </span>
         </td>
         <td>
           <div class="action-buttons">
-            <p-button
-              icon="pi pi-check"
-              severity="success"
-              [disabled]="reservation.status === 'Confirmada'"
-              (onClick)="updateStatus(reservation.id, 'Confirmada')"
-              tooltipPosition="top"
-              pTooltip="Confirmar Reserva"
-            >
-            </p-button>
-            <p-button
-              icon="pi pi-times"
-              severity="danger"
-              [disabled]="reservation.status === 'Cancelada'"
-              (onClick)="updateStatus(reservation.id, 'Cancelada')"
-              tooltipPosition="top"
-              pTooltip="Cancelar Reserva"
-            >
-            </p-button>
+            <button class="action-btn confirm" 
+                    [disabled]="reservation.status === 'Confirmada'"
+                    (click)="updateStatus(reservation.id, 'Confirmada')">
+              <i class="pi pi-check"></i>
+            </button>
+            <button class="action-btn cancel" 
+                    [disabled]="reservation.status === 'Cancelada'"
+                    (click)="updateStatus(reservation.id, 'Cancelada')">
+              <i class="pi pi-times"></i>
+            </button>
           </div>
         </td>
       </tr>

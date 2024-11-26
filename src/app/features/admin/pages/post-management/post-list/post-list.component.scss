@@ -1,46 +1,169 @@
-:host ::ng-deep {
-  .p-button {
-    &.p-button-success {
-      &:enabled:hover {
-        background: var(--green-600);
-      }
-    }
+@import "../../../../../../style/variables.scss";
 
-    &.p-button-danger {
-      &:enabled:hover {
-        background: var(--red-600);
-      }
-    }
+.card {
+  background: $color-white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba($color-eerie, 0.05);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  h1 {
+    font-family: $font-content;
+    color: $color-eerie;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
   }
 
-  .p-datatable {
-    .p-datatable-header {
-      padding: 1rem;
-      background: var(--surface-0);
-    }
-
-    .p-datatable-thead > tr > th {
-      padding: 1rem;
-      background: var(--surface-0);
-    }
-
-    .p-datatable-tbody > tr > td {
-      padding: 1rem;
-    }
-
-    &.p-datatable-hoverable-rows {
-      .p-datatable-tbody > tr:not(.p-highlight):hover {
-        background: var(--surface-100);
-      }
-    }
+  .action-buttons {
+    display: flex;
+    gap: 0.75rem;
   }
 }
 
-.card {
-  background: var(--surface-card);
-  padding: 2rem;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+:host ::ng-deep {
+  .new-post-button {
+    background-color: #00b8d4;
+    border: none;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      background-color: darken(#00b8d4, 10%);
+    }
+
+    .p-button-label {
+      font-weight: 500;
+    }
+  }
+
+  .delete-selected-button {
+    background-color: $color-cardinal;
+    border: none;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      background-color: darken($color-cardinal, 10%);
+    }
+  }
+
+  .custom-table {
+    .p-datatable-header {
+      background: transparent;
+      border: none;
+    }
+
+    .p-datatable-thead > tr > th {
+      background: $color-white;
+      border: none;
+      border-bottom: 1px solid rgba($color-onyx, 0.1);
+      color: $color-onyx;
+      font-weight: 600;
+      padding: 1rem;
+      font-size: 0.875rem;
+    }
+
+    .p-datatable-tbody > tr {
+      border-bottom: 1px solid rgba($color-onyx, 0.05);
+
+      &:nth-child(even) {
+        background: rgba($color-whiteSmoke, 0.3);
+      }
+
+      > td {
+        padding: 0.75rem 1rem;
+        border: none;
+        color: $color-onyx;
+      }
+
+      &:hover {
+        background: rgba($color-xanthous, 0.05);
+      }
+    }
+
+    .p-checkbox {
+      .p-checkbox-box {
+        border: 2px solid rgba($color-onyx, 0.2);
+        background: $color-white;
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+
+        &:hover {
+          border-color: $color-cardinal;
+        }
+
+        &.p-highlight {
+          background: $color-cardinal;
+          border-color: $color-cardinal;
+
+          &:hover {
+            background: darken($color-cardinal, 10%);
+            border-color: darken($color-cardinal, 10%);
+          }
+        }
+
+        .p-checkbox-icon {
+          font-size: 12px;
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  .row-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+
+    .action-btn {
+      border: none;
+      background: transparent;
+      padding: 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &.edit {
+        color: #ffc107;
+        &:hover {
+          background: rgba(#ffc107, 0.1);
+        }
+      }
+
+      &.delete {
+        color: $color-cardinal;
+        &:hover {
+          background: rgba($color-cardinal, 0.1);
+        }
+      }
+
+      i {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .p-paginator {
+    background: transparent;
+    border: none;
+    padding: 1rem 0 0;
+
+    .p-paginator-element {
+      color: $color-onyx;
+      border-radius: 4px;
+
+      &.p-highlight {
+        background: $color-cardinal;
+        color: $color-white;
+      }
+    }
+  }
 }
 
 .flex {

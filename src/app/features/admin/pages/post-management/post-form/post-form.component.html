@@ -1,47 +1,77 @@
-<form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="p-4">
-  <div class="field mb-4">
-    <label for="title" class="block mb-2">Título do Post</label>
-    <input id="title" pInputText formControlName="title" class="w-full" />
-  </div>
+<div class="card">
+  <h1>{{ postId ? 'Editar Post' : 'Inserir Novo Post' }}</h1>
 
-  <div class="field mb-4">
-    <label for="author" class="block mb-2">Autor</label>
-    <input id="author" pInputText formControlName="author" class="w-full" />
-  </div>
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <div class="form-grid">
+      <div class="field">
+        <input 
+          id="title" 
+          type="text" 
+          pInputText 
+          formControlName="title" 
+          placeholder="Título do Post"
+          class="w-full"
+        />
+      </div>
 
-  <div class="field mb-4">
-    <label for="coverImage" class="block mb-2">Imagem de Capa</label>
-    <p-fileUpload
-      mode="basic"
-      name="coverImage"
-      [auto]="true"
-      chooseLabel="Escolher Imagem"
-    ></p-fileUpload>
-  </div>
+      <div class="field">
+        <input 
+          id="author" 
+          type="text" 
+          pInputText 
+          formControlName="author" 
+          placeholder="Autor"
+          class="w-full"
+        />
+      </div>
+    </div>
 
-  <div class="field mb-4">
-    <label for="content" class="block mb-2">Conteúdo</label>
-    <p-editor
-      formControlName="content"
-      [style]="{ height: '320px' }"
-    ></p-editor>
-  </div>
+    <div class="field upload-area">
+      <div class="upload-placeholder">
+        <i class="pi pi-image"></i>
+        <p>Arraste ou Selecione uma imagem de capa</p>
+        <p-fileUpload
+          mode="basic"
+          chooseLabel="Escolher Imagem"
+          [auto]="true"
+          accept="image/*"
+          styleClass="upload-button"
+          [maxFileSize]="1000000"
+        ></p-fileUpload>
+      </div>
+    </div>
 
-  <div class="field mb-4">
-    <label for="tags" class="block mb-2">Tags</label>
-    <p-chips formControlName="tags"></p-chips>
-  </div>
+    <div class="field">
+      <p-editor
+        formControlName="content"
+        [style]="{ height: '320px' }"
+        styleClass="custom-editor"
+      ></p-editor>
+    </div>
 
-  <div class="flex justify-content-end gap-2">
-    <p-button
-      label="Cancelar"
-      (onClick)="onCancel()"
-      styleClass="p-button-secondary"
-    ></p-button>
-    <p-button
-      label="Salvar"
-      type="submit"
-      [disabled]="!postForm.valid"
-    ></p-button>
-  </div>
-</form>
+    <div class="field">
+      <p-chips
+        formControlName="tags"
+        placeholder="Inserir Tags"
+        [addOnBlur]="true"
+        styleClass="custom-chips"
+      ></p-chips>
+    </div>
+
+    <div class="button-container">
+      <p-button
+        label="Cancelar"
+        icon="pi pi-times"
+        styleClass="p-button-danger"
+        (onClick)="onCancel()"
+      ></p-button>
+      <p-button
+        label="Postar"
+        icon="pi pi-check"
+        type="submit"
+        styleClass="p-button-success"
+        [disabled]="!postForm.valid"
+      ></p-button>
+    </div>
+  </form>
+</div>

@@ -3,24 +3,22 @@
 <p-confirmDialog></p-confirmDialog>
 
 <div class="card">
-  <div class="flex justify-content-between align-items-center mb-4">
+  <div class="header-container">
     <h1>Gerenciamento de Posts</h1>
-    <div>
+    <div class="action-buttons">
       <p-button
         icon="pi pi-plus"
         label="Novo Post"
-        styleClass="p-button-success mr-2"
+        styleClass="new-post-button"
         [routerLink]="['new']"
-      >
-      </p-button>
+      ></p-button>
       <p-button
         icon="pi pi-trash"
         label="Excluir Selecionados"
-        styleClass="p-button-danger"
+        styleClass="delete-selected-button"
         (onClick)="deleteSelectedPosts()"
         [disabled]="!selectedPosts.length"
-      >
-      </p-button>
+      ></p-button>
     </div>
   </div>
 
@@ -34,22 +32,23 @@
     currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} posts"
     [rowsPerPageOptions]="[10, 25, 50]"
     [globalFilterFields]="['title', 'author']"
+    styleClass="custom-table"
   >
     <ng-template pTemplate="header">
       <tr>
-        <th style="width: 4rem">
+        <th style="width: 3rem">
           <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
         </th>
-        <th pSortableColumn="title">
+        <th pSortableColumn="title" style="width: 40%">
           Título <p-sortIcon field="title"></p-sortIcon>
         </th>
-        <th pSortableColumn="author">
+        <th pSortableColumn="author" style="width: 25%">
           Autor <p-sortIcon field="author"></p-sortIcon>
         </th>
-        <th pSortableColumn="createdAt">
+        <th pSortableColumn="createdAt" style="width: 20%">
           Data <p-sortIcon field="createdAt"></p-sortIcon>
         </th>
-        <th style="width: 8rem">Ações</th>
+        <th style="width: 12%">Ações</th>
       </tr>
     </ng-template>
 
@@ -62,18 +61,14 @@
         <td>{{ post.author }}</td>
         <td>{{ post.createdAt | date: 'dd/MM/yyyy' }}</td>
         <td>
-          <button
-            pButton
-            icon="pi pi-pencil"
-            class="p-button-rounded p-button-success mr-2"
-            (click)="onEdit(post)"
-          ></button>
-          <button
-            pButton
-            icon="pi pi-trash"
-            class="p-button-rounded p-button-danger"
-            (click)="onDelete(post)"
-          ></button>
+          <div class="row-actions">
+            <button class="action-btn edit" (click)="onEdit(post)">
+              <i class="pi pi-pencil"></i>
+            </button>
+            <button class="action-btn delete" (click)="onDelete(post)">
+              <i class="pi pi-trash"></i>
+            </button>
+          </div>
         </td>
       </tr>
     </ng-template>
