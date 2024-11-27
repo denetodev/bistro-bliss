@@ -59,7 +59,7 @@
         </td>
         <td>{{ post.title }}</td>
         <td>{{ post.author }}</td>
-        <td>{{ post.createdAt | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ post.createdAt | date : "dd/MM/yyyy" }}</td>
         <td>
           <div class="row-actions">
             <button class="action-btn edit" (click)="onEdit(post)">

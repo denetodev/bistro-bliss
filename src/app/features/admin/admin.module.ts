@@ -36,6 +36,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { PostManagementModule } from './pages/post-management/post-management.module';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { PostManagementModule } from './pages/post-management/post-management.mo
     AdminTableModule,
     ContactManagementModule,
     TooltipModule,
+    DashboardModule,
     // PrimeNG Modules
     TableModule,
     ButtonModule,

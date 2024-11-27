@@ -1,1 +1,15 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+  <div class="dashboard-grid">
+    <div
+      class="dashboard-card"
+      *ngFor="let card of dashboardCards"
+      [style.backgroundImage]="'url(' + card.backgroundImage + ')'"
+      (click)="navigateTo(card.route)"
+    >
+      <div class="card-content">
+        <h2>{{ card.title }}</h2>
+        <p>{{ card.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

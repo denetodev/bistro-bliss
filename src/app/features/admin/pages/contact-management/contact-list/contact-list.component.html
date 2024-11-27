@@ -39,22 +39,22 @@
         </td>
         <td>
           <span class="status-badge" [ngClass]="contact.status?.toLowerCase()">
-            {{ contact.status || 'Pendente' }}
+            {{ contact.status || "Pendente" }}
           </span>
         </td>
         <td>
           <div class="action-buttons">
             <button
               pButton
-              class="p-button-success p-button-rounded"
-              icon="pi pi-check"
+              class="p-button-success"
+              icon="pi pi-thumbs-up-fill"
               [disabled]="contact.status === 'Positivo'"
               (click)="updateStatus(contact.id, 'Positivo')"
             ></button>
             <button
               pButton
-              class="p-button-danger p-button-rounded"
-              icon="pi pi-times"
+              class="p-button-danger"
+              icon="pi pi-thumbs-down-fill"
               [disabled]="contact.status === 'Negativo'"
               (click)="updateStatus(contact.id, 'Negativo')"
             ></button>

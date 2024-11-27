@@ -119,32 +119,45 @@
   .row-actions {
     display: flex;
     gap: 0.5rem;
-    justify-content: flex-start;
+    justify-content: center;
 
     .action-btn {
-      border: none;
-      background: transparent;
-      padding: 0.5rem;
+      width: 2rem;
+      height: 2rem;
       border-radius: 4px;
+      border: none;
       cursor: pointer;
-      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
 
       &.edit {
-        color: #ffc107;
+        background: #55c985;
+        color: white;
+
         &:hover {
-          background: rgba(#ffc107, 0.1);
+          background: darken(#55c985, 10%);
+        }
+
+        &:disabled {
+          background: #90caf9;
+          cursor: not-allowed;
         }
       }
 
       &.delete {
-        color: $color-cardinal;
-        &:hover {
-          background: rgba($color-cardinal, 0.1);
-        }
-      }
+        background: #f44336;
+        color: white;
 
-      i {
-        font-size: 1rem;
+        &:hover {
+          background: darken(#f44336, 10%);
+        }
+
+        &:disabled {
+          background: #ffcdd2;
+          cursor: not-allowed;
+        }
       }
     }
   }

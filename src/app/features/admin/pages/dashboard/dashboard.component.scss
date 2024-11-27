@@ -1,0 +1,91 @@
+@import "../../../../../style/variables.scss";
+
+.dashboard-container {
+  padding: 0.1rem;
+  min-height: 100vh;
+
+  .dashboard-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 1rem;
+
+    .dashboard-card {
+      position: relative;
+      width: 280px;
+      height: 500px;
+      flex: 0 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      background-size: cover;
+      background-position: center;
+      transition: all 0.5s ease;
+      background-color: #1c1c1c;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.9)
+        );
+      }
+
+      .card-content {
+        position: relative;
+        padding: 1.5rem;
+        color: white;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h2 {
+          font-size: 1.25rem;
+          margin-bottom: 0.5rem;
+          font-weight: 600;
+        }
+
+        p {
+          font-size: 0.85rem;
+          line-height: 1.5;
+          opacity: 0.9;
+          margin: 0;
+        }
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .dashboard-container .dashboard-grid {
+    justify-content: flex-start;
+
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+  }
+}

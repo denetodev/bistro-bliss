@@ -74,11 +74,11 @@
     transition: all 0.2s;
 
     &.confirm {
-      background: #4caf50;
+      background: #55c985;
       color: white;
 
       &:hover {
-        background: darken(#4caf50, 10%);
+        background: darken(#55c985, 10%);
       }
 
       &:disabled {
