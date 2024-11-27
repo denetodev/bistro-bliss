@@ -1,1 +1,47 @@
-<p>contact-detail-modal works!</p>
+<div class="contact-detail-container">
+  <div class="contact-header">
+    <div class="contact-info">
+      <h3>{{ contact.name }}</h3>
+      <span class="email">{{ contact.email }}</span>
+    </div>
+    <span class="status-badge" [ngClass]="contact.status?.toLowerCase()">
+      {{ contact.status || 'Pendente' }}
+    </span>
+  </div>
+
+  <div class="contact-content">
+    <div class="info-group">
+      <label>Assunto:</label>
+      <p>{{ contact.subject }}</p>
+    </div>
+
+    <div class="info-group">
+      <label>Mensagem:</label>
+      <p class="message">{{ contact.message }}</p>
+    </div>
+
+    <div class="info-group">
+      <label>Data do Contato:</label>
+      <p>{{ contact.createdAt | date:'dd/MM/yyyy HH:mm' }}</p>
+    </div>
+  </div>
+
+  <div class="contact-actions">
+    <button 
+      pButton 
+      class="p-button-success"
+      [disabled]="contact.status === 'Positivo'"
+      (click)="updateStatus('Positivo')"
+      label="Aprovar"
+      icon="pi pi-check">
+    </button>
+    <button 
+      pButton 
+      class="p-button-danger"
+      [disabled]="contact.status === 'Negativo'"
+      (click)="updateStatus('Negativo')"
+      label="Rejeitar"
+      icon="pi pi-times">
+    </button>
+  </div>
+</div>
