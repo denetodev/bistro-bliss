@@ -15,12 +15,36 @@
     gap: 2rem;
     margin-bottom: 2rem;
 
+    // Esconde o wrapper da mobile-row por padrão em telas grandes
+    .mobile-row {
+      display: contents;
+    }
+
     @media (max-width: 968px) {
       grid-template-columns: repeat(2, 1fr);
     }
 
     @media (max-width: 576px) {
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
+
+      // Ativar a linha para as duas colunas no mobile
+      .mobile-row {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        margin-bottom: 2rem;
+
+        .footer-section,
+        .footer-pages {
+          flex: 1;
+          width: 50%;
+        }
+      }
+
+      .instagram-section {
+        width: 100%;
+      }
     }
   }
 
@@ -113,6 +137,10 @@
 
   .footer-pages {
     margin-left: 3rem;
+
+    @media (max-width: 576px) {
+      margin-left: 0;
+    }
   }
 
   .instagram-grid {

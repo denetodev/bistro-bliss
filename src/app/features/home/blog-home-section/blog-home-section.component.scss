@@ -13,15 +13,16 @@
 
   .blog-header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column; 
     align-items: center;
+    text-align: center; 
     margin-bottom: 2rem;
 
     .section-title {
       font-family: $font-title;
-      font-size: 2.8rem;
+      font-size: $font-size-title;
       font-weight: 200 !important;
+      margin-bottom: 2.5rem; 
     }
 
     ::ng-deep {
@@ -31,6 +32,7 @@
         padding: 0.9rem 1.5rem !important;
         font-size: 0.9rem;
         transition: all 0.3s ease;
+        
 
         &:hover {
           background-color: $color-cardinal;
@@ -42,13 +44,12 @@
   }
 
   .blog-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
+    display: flex;
+    flex-direction: column; // Coluna em dispositivos móveis
+    gap: 2rem;
 
     .cards-principal {
-      height: 100%;
-      grid-column: 1 / 2;
+      width: 100%; // Ocupa a largura total
 
       // Força o app-blog-card a ocupar 100% da altura
       ::ng-deep app-blog-card {
@@ -65,10 +66,58 @@
     }
 
     .cards-content {
-      grid-column: 2 / 3;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 2rem;
+      grid-template-columns: 1fr; // Uma coluna em dispositivos móveis
+      gap: 2rem;
+    }
+  }
+}
+
+// Media Queries para Tablets
+@media (min-width: 768px) {
+  .blog-section {
+    .blog-header {
+      flex-direction: row; // Linha em tablets e desktops
+      justify-content: space-between;
+      align-items: center;
+      text-align: left; // Alinha o texto à esquerda
+
+      .section-title {
+        font-size: 2.8rem; // Tamanho maior para tablets e desktops
+        margin-bottom: 0; // Remove o espaçamento entre título e botão
+      }
+    }
+
+    .blog-cards {
+      flex-direction: row; // Linha em tablets e desktops
+      gap: 2rem;
+
+      .cards-principal {
+        width: 50%; // Ocupa metade da largura
+      }
+
+      .cards-content {
+        grid-template-columns: repeat(
+          2,
+          1fr
+        ); // Duas colunas em tablets e desktops
+        width: 50%; // Ocupa metade da largura
+      }
+    }
+  }
+}
+
+// Media Queries para Desktops
+@media (min-width: 1024px) {
+  .blog-section {
+    .blog-cards {
+      .cards-principal {
+        width: 40%; // Ajusta a largura da coluna principal
+      }
+
+      .cards-content {
+        width: 60%; // Ajusta a largura da coluna de conteúdo
+      }
     }
   }
 }

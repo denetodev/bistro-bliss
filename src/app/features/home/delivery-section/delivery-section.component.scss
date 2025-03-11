@@ -2,6 +2,7 @@
 
 .delivery-section {
   display: flex;
+  flex-direction: column; // Coluna em dispositivos móveis
   align-items: center;
   justify-content: center;
   background-color: $color-bg-principal;
@@ -11,44 +12,53 @@
 
   .image-gallery {
     display: flex;
-    flex-direction: row;
+    flex-direction: column; // Coluna em dispositivos móveis
     gap: 1rem;
+    width: 100%; // Garante que ocupe a largura total
 
-    .main-image {
-      width: auto;
-      height: 430px;
-      border-radius: 8px;
-      object-fit: cover;
+    .img-large {
+      width: 100%; // Ocupa a largura total
+      text-align: center; // Centraliza a imagem
+
+      .main-image {
+        width: 100%; // Responsivo
+        height: auto; // Altura automática
+        max-height: 430px; // Limita a altura máxima
+        border-radius: 8px;
+        object-fit: cover;
+      }
     }
 
     .img-small {
       display: flex;
-      flex-direction: column;
+      flex-direction: row; // Linha em tablets e desktops
+      gap: 1rem;
+      justify-content: center; // Centraliza as imagens
 
       .side-image {
-        width: 216px;
-        height: auto;
+        width: 48%; // Divide o espaço em duas colunas
+        height: auto; // Altura automática
         border-radius: 8px;
         object-fit: cover;
-        margin-top: 12px;
       }
     }
   }
 
   .text-content {
-    max-width: 430px;
+    max-width: 100%; // Ocupa a largura total em dispositivos móveis
+    text-align: center; // Centraliza o texto
 
     h2 {
       font-family: $font-title;
       font-size: $font-size-title;
-      margin-bottom: $font-size-title;
+      margin-bottom: 1rem; // Ajuste de margem
     }
 
     p {
       font-family: $font-content;
       font-size: $font-size-card-desc;
       margin-bottom: 2rem;
-      line-height: 1.2;
+      line-height: 1.5; // Melhora a legibilidade
     }
 
     .features {
@@ -60,11 +70,12 @@
         align-items: center;
         font-size: 1rem;
         margin-bottom: 1rem;
+        justify-content: center; // Centraliza os itens
 
         i {
           width: 36px;
           height: 36px;
-          margin: 2px 20px 2px 0;
+          margin-right: 20px;
           background-color: $color-cardinal;
           border-radius: 50%;
           display: flex;
@@ -79,6 +90,56 @@
           }
         }
       }
+    }
+  }
+}
+
+// Media Queries para Desktops
+@media (min-width: 1024px) {
+  .delivery-section {
+    .image-gallery {
+      .img-large {
+        width: 50%; // Ajusta a largura da imagem grande
+      }
+
+      .img-small {
+        width: 30%; // Ajusta a largura das imagens pequenas
+      }
+    }
+
+    .text-content {
+      max-width: 40%; // Ajusta a largura do texto
+    }
+  }
+}
+
+// Media Queries para Tablets
+@media (min-width: 768px) {
+  .delivery-section {
+    flex-direction: row; // Linha em tablets e desktops
+    padding: 4rem; // Aumenta o padding
+
+    .image-gallery {
+      flex-direction: row; // Linha em tablets e desktops
+      gap: 2rem;
+
+      .img-large {
+        width: 60%; // Ajusta a largura da imagem grande
+      }
+
+      .img-small {
+        flex-direction: column; // Coluna em tablets e desktops
+        width: 40%; // Ajusta a largura das imagens pequenas
+
+        .side-image {
+          width: 100%; // Ocupa a largura total
+        }
+      }
+    }
+
+    .text-content {
+      max-width: 50%; // Ajusta a largura do texto
+      text-align: left; // Alinha o texto à esquerda
     }
   }
 }
