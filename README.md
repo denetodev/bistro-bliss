@@ -9,7 +9,7 @@ Explore o sabor da inovação e mergulhe neste projeto comigo!
 ## Índice de Conteúdos
 
 - [Visão Geral](#visão-geral)
-  - [Screenshot](#screenshot)
+  - [Design](#screenshot)
   - [Links](#links)
 - [Meu Processo](#meu-processo)
   - [Construído com](#construído-com)
