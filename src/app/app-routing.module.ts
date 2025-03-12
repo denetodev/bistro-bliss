@@ -18,11 +18,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/blog/blog.module').then((m) => m.BlogModule),
   },
-  {
-    path: 'admin',
-    loadChildren: () =>
-      import('./features/admin/admin.module').then((m) => m.AdminModule),
-  },
 ];
 
 @NgModule({

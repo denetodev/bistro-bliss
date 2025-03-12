@@ -25,8 +25,13 @@ export class BlogPostComponent implements OnInit {
         next: (post) => {
           if (post) {
             this.post = post;
+
+            // Se houver um contentUrl, carrega do serviço
             if (post.contentUrl) {
               this.loadPostContent(post.contentUrl);
+            } else {
+              // Caso contrário, usa o conteúdo mockado diretamente
+              this.content = post.content;
             }
           }
         },
