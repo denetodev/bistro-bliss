@@ -31,7 +31,8 @@ export class BlogService {
     {
       id: '2',
       title: 'Drinks para o verão',
-      content: 'Conteúdo sobre drinks...',
+      content:
+        'aquiiiiiiiiiiiii vaiiiiiiiiii o conteuuuuuuuuuuuuuudooooooooooo doooooooo pooooooooooooosssssssssssttttttttttttt',
       status: 'Published',
       category: 'Bebidas',
       imageUrl: '/assets/images/blog/drinks.jpg',

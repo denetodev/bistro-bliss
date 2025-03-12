@@ -179,4 +179,16 @@
       margin-left: 0;
     }
   }
+
+  .social-link {
+    text-decoration: none;
+    color: darkorange;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    &:hover {
+      color: orange;
+      font-weight: 800;
+    }
+  }
 }
