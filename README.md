@@ -110,13 +110,13 @@ Quero continuar aprimorando o **Bistro Bliss**! Meus próximos passos incluem:
 Oi, eu sou Neto! Apaixonado por tecnologia e gastronomia, este projeto foi a minha chance de unir esses dois mundos. Quer saber mais sobre mim? Confira minhas redes:
 
 <div align="center">
-  <a href="https://github.com/seu-usuario">
+  <a href="https://github.com/denetodev">
     <img src="https://skillicons.dev/icons?i=github" alt="GitHub" />
   </a>
-  <a href="https://www.linkedin.com/in/seu-linkedin">
+  <a href="https://www.linkedin.com/in/deneto/">
     <img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn" />
   </a>
-  <a href="https://www.instagram.com/seu-instagram">
+  <a href="https://www.instagram.com/denetodev">
     <img src="https://skillicons.dev/icons?i=instagram" alt="Instagram" />
   </a>
 </div>
