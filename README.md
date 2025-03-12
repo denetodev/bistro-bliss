@@ -27,7 +27,9 @@ O **Bistro Bliss** é mais do que um site — é uma experiência digital que co
 
 ### Screenshot
 
-![Screenshot do Bistro Bliss](https://raw.githubusercontent.com/seu-usuario/bistro-bliss/main/screenshots/desktop-preview.jpg)  
+<p align="center">
+  <img src="https://raw.githubusercontent.com/denetodev/bistro-bliss/refs/heads/main/design/Bistro-Bliss-Design.png" alt="Design do Bistro Bliss">
+</p>
 _Saboreie o design: uma prévia do site em desktop!_
 
 ### Links
